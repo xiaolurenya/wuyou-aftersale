@@ -93,6 +93,8 @@ docker compose up -d
 客户端装好后：输入 `IP:端口`（如 `192.168.1.10:3650` 不勾 HTTPS）或域名（勾 HTTPS）+ 账号密码 → 自动连接后台，下次打开免输。
 工程源码在本仓库 [`android/`](<android/>) 与 [`desktop/`](<desktop/>)；打 `v*` tag 会自动构建并发布到 Releases。详见 [客户端说明](<docs/CLIENTS.md>)。
 
+[Releases](<https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.0>) 现有可直接下载：`WuyouAftersale-1.0.0-Android.apk`、`WuyouAftersale-1.0.0-Feiniu.fpk`、`WuyouAftersale-1.0.0-Windows-Setup.exe`、`WuyouAftersale-1.0.0-Portable.exe`、`WuyouAftersale-1.0.0-Linux.AppImage`。
+
 ---
 
 ## 授权与价格
