@@ -1,11 +1,11 @@
 # 无忧售后助手
 
-一款直接装在你自己设备上的售后登记管理软件。数据自己掌握，一次买断，后续更新免费。
+一款装在你自己设备上的售后登记管理软件：飞牛 / 群晖 / 绿联 NAS、Ubuntu 服务器、宝塔面板均可部署。数据自己掌握，一次买断，后续更新免费。
 
 ![版本](https://img.shields.io/badge/version-v1.0.0-blue)
 ![许可](https://img.shields.io/badge/license-Proprietary-orange)
 ![端口](https://img.shields.io/badge/port-3650-green)
-![平台](https://img.shields.io/badge/platform-Feiniu%20%2F%20Synology%20%2F%20UGREEN-lightgrey)
+![平台](https://img.shields.io/badge/platform-Feiniu%20%2F%20Synology%20%2F%20UGREEN%20%2F%20Ubuntu%20%2F%20%E5%AE%9D%E5%A1%94-lightgrey)
 
 ---
 
@@ -18,12 +18,14 @@
 - **打印明细**：按上家汇总未返回机器，A4 版式可调，附返回地址与快递公司（单号自动识别）
 - **权限清晰**：超级管理员 / 管理员 / 登记员 / 只读，13 个权限点逐项可配
 - **授权简单**：15 天试用 → 到期弹作者微信收款码与联系方式 → 粘贴激活码离线激活 → 永久使用，换版本不再收费
-- **数据稳**：每日备份 + 整机迁移包（NAS 坏了换台设备即可恢复，激活码不失效）；云端版数据托管在 Supabase
+- **数据稳**：每日备份 + 整机迁移包（NAS 坏了换台设备即可恢复，激活码不失效）
 - **多端可用**：浏览器 / 安卓 APP / 电脑客户端，输 IP:端口 或域名 + 账号密码自动连接
 
 ---
 
 ## 安装（Docker Compose）
+
+> **支持环境**：飞牛 / 群晖 / 绿联 NAS、Ubuntu / Debian 服务器、**宝塔面板**（安装 Docker 管理器后按下面方式创建容器）均可。只要是能跑 Docker Compose v2 的 Linux，步骤完全一样。
 
 把下面内容存为 `docker-compose.yml`：
 
@@ -71,6 +73,8 @@ docker compose up -d
 
 打开 `http://设备IP:3650`，用 `admin` + 你设的密码登录。
 
+**默认账号密码**：`admin` / `Admin@3650`（首次登录后请在「系统设置 → 人员账号」修改）。若按上面生成了 `.env`，则以 `.env` 里 `BOOTSTRAP_ADMIN_PASSWORD` 为准。
+
 > 飞牛用户也可以直接装套件包：[下载 .fpk](<downloads/无忧售后助手-1.0.0-x86_64.fpk>)，在「套件中心 → 手动安装」导入。
 > 升级：`docker compose pull && docker compose up -d`，数据卷不动、激活码不失效。
 
@@ -83,8 +87,8 @@ docker compose up -d
 | 飞牛 fpk | [下载 .fpk](<downloads/无忧售后助手-1.0.0-x86_64.fpk>)，套件中心手动安装 |
 | 安卓 APP | [Releases 下载 APK](<https://github.com/xiaolurenya/wuyou-aftersale/releases>) |
 | 电脑客户端 | [Releases 下载 Windows 安装包 / Linux AppImage](<https://github.com/xiaolurenya/wuyou-aftersale/releases>) |
-| 云端版 | 浏览器直接打开，手机电脑自适应，免安装 |
 | 一键脚本 | `./install.sh` |
+| Ubuntu / 宝塔 | 同一份 `docker-compose.yml`；宝塔在「Docker → 容器编排」粘贴即可 |
 
 客户端装好后：输入 `IP:端口`（如 `192.168.1.10:3650` 不勾 HTTPS）或域名（勾 HTTPS）+ 账号密码 → 自动连接后台，下次打开免输。
 工程源码在本仓库 [`android/`](<android/>) 与 [`desktop/`](<desktop/>)；打 `v*` tag 会自动构建并发布到 Releases。详见 [客户端说明](<docs/CLIENTS.md>)。
