@@ -1,7 +1,7 @@
 package com.wuyou.aftersale;
 import android.annotation.SuppressLint; import android.os.*; import android.webkit.*;
-import androidx.appcompat.app.AppCompatActivity;
-public class WebActivity extends AppCompatActivity {
+import android.app.Activity;
+public class WebActivity extends Activity {
   @SuppressLint("SetJavaScriptEnabled")
   @Override protected void onCreate(Bundle b){ super.onCreate(b);
     String base=getIntent().getStringExtra("base");
