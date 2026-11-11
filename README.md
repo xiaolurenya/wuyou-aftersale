@@ -78,12 +78,16 @@ docker compose up -d
 
 ## 其他安装方式
 
-| 方式 | 说明 |
+| 方式 | 下载 / 说明 |
 |---|---|
-| 飞牛 fpk | [downloads/无忧售后助手-1.0.0-x86_64.fpk](<downloads/无忧售后助手-1.0.0-x86_64.fpk>) |
-| 云端版（免安装） | 浏览器直接打开，手机电脑自适应 |
-| 安卓 APP / 电脑客户端 | 输 `IP:端口` 或域名 + 账号密码自动连接；工程见 [客户端说明](<docs/CLIENTS.md>) |
+| 飞牛 fpk | [下载 .fpk](<downloads/无忧售后助手-1.0.0-x86_64.fpk>)，套件中心手动安装 |
+| 安卓 APP | [Releases 下载 APK](<https://github.com/xiaolurenya/wuyou-aftersale/releases>) |
+| 电脑客户端 | [Releases 下载 Windows 安装包 / Linux AppImage](<https://github.com/xiaolurenya/wuyou-aftersale/releases>) |
+| 云端版 | 浏览器直接打开，手机电脑自适应，免安装 |
 | 一键脚本 | `./install.sh` |
+
+客户端装好后：输入 `IP:端口`（如 `192.168.1.10:3650` 不勾 HTTPS）或域名（勾 HTTPS）+ 账号密码 → 自动连接后台，下次打开免输。
+工程源码在本仓库 [`android/`](<android/>) 与 [`desktop/`](<desktop/>)；打 `v*` tag 会自动构建并发布到 Releases。详见 [客户端说明](<docs/CLIENTS.md>)。
 
 ---
 
