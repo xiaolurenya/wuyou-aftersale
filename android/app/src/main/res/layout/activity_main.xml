@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:padding="28dp" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F1F5F9">
+  <ImageView android:layout_width="72dp" android:layout_height="72dp" android:src="@mipmap/ic_launcher" android:layout_gravity="center_horizontal" android:layout_marginTop="36dp"/>
+  <TextView android:text="无忧售后助手" android:textSize="24sp" android:textStyle="bold" android:textColor="#0F172A" android:layout_gravity="center_horizontal" android:layout_marginTop="14dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+  <TextView android:text="连接你的服务器" android:textSize="13sp" android:textColor="#64748B" android:layout_gravity="center_horizontal" android:layout_marginBottom="26dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+  <TextView android:text="服务器地址（IP:端口 或 域名）" android:textSize="13sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+  <EditText android:id="@+id/etHost" android:hint="192.168.1.10:3650 或 xlry.cc.cd" android:inputType="textUri" android:background="#FFFFFF" android:padding="12dp" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+  <TextView android:text="账号" android:textSize="13sp" android:layout_marginTop="16dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+  <EditText android:id="@+id/etUser" android:hint="admin" android:background="#FFFFFF" android:padding="12dp" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+  <TextView android:text="密码" android:textSize="13sp" android:layout_marginTop="16dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+  <EditText android:id="@+id/etPass" android:hint="密码" android:inputType="textPassword" android:background="#FFFFFF" android:padding="12dp" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+  <CheckBox android:id="@+id/cbHttps" android:text="使用 HTTPS（域名）" android:layout_marginTop="12dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+  <Button android:id="@+id/btnConnect" android:text="连接并登录" android:backgroundTint="#2563EB" android:textColor="#FFFFFF" android:layout_marginTop="24dp" android:layout_width="match_parent" android:layout_height="52dp"/>
+  <TextView android:id="@+id/tvMsg" android:textColor="#DC2626" android:textSize="13sp" android:layout_marginTop="12dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+</LinearLayout>
