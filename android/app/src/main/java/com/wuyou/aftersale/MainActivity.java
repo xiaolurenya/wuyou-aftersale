@@ -1,8 +1,8 @@
 package com.wuyou.aftersale;
 import android.content.*; import android.os.*; import android.view.View; import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 import org.json.*; import java.net.*; import java.io.*; import java.util.concurrent.*;
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
   private EditText etHost, etUser, etPass; private CheckBox cbHttps; private TextView tvMsg;
   private SharedPreferences sp; private final ExecutorService ex=Executors.newSingleThreadExecutor();
   @Override protected void onCreate(Bundle b){ super.onCreate(b); setContentView(R.layout.activity_main);
