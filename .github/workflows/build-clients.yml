@@ -29,12 +29,12 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: wuyou-android-apk
-          path: ${{ steps.apk.outputs.path }}
+          path: android/${{ steps.apk.outputs.path }}
       - name: Attach to Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: ${{ steps.apk.outputs.path }}
+          files: android/${{ steps.apk.outputs.path }}
 
   windows-exe:
     runs-on: windows-latest
