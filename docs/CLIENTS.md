@@ -1,25 +1,18 @@
 # 客户端与安装包
 
-## NAS 安装（推荐）
-- **飞牛 fpk**：`无忧售后助手-1.0.0-x86_64.fpk`，在飞牛「套件中心 → 手动安装」导入
-- 或用本仓库 `docker-compose.yml` / `install.sh`，一行命令拉镜像
+## 飞牛 fpk（推荐 NAS 用户）
+[下载 无忧售后助手-1.0.0-x86_64.fpk](<../downloads/无忧售后助手-1.0.0-x86_64.fpk>) → 飞牛「套件中心 → 手动安装」导入。
+包内已含 compose、图标与安装脚本，自动拉取 Docker Hub 的交付镜像。
 
 ## 安卓 APP
-安卓工程在私有仓 `android/`，用 Android Studio 打开 → Build → Generate Signed APK。
-首屏输入 `IP:端口` 或 `域名` + 账号密码 → 自动连接后台。
-也可由 CI（`.github/workflows/build-clients.yml`）在 `ubuntu-latest` 自动产出 APK。
+完整 Android 工程在私有源码仓 `android/`：首屏输 `IP:端口` 或域名 + 账号密码 → 自动登录后台，配置本地记住。
+用 Android Studio 打开 → Build → Generate Signed APK；或由 CI 自动产出。
 
 ## 电脑客户端
-Electron 工程在私有仓 `desktop/`：
-```bash
-npm install && npm start          # 本机运行
-npm run build:win                # Windows 安装包（需 Windows）
-```
-CI 在 `windows-latest` 自动产出 `.exe`；Linux 可出 AppImage/deb。
+完整 Electron 工程在私有源码仓 `desktop/`：同样的登录连接逻辑，
+`npm install && npm start` 运行，`npm run build:win` 出 Windows 安装包（CI 在 windows-latest 自动构建）。
 
-## 云端版（免安装）
-直接打开 `https://xlry.cc.cd`，用浏览器即可，手机/电脑自适应。
+## 云端版
+浏览器直接打开已部署域名即可，无需安装，手机 / 电脑自适应。
 
-## 登录方式
-所有客户端统一：填**服务器地址**（局域网 `192.168.x.x:3650` 或域名 `xlry.cc.cd`）+ 账号密码 → 自动登录。
-配置会被记住，下次打开直接进主界面。
+> 三个客户端的**工程源码**属于私有仓；公开仓提供可直接安装的 fpk 成品与交付镜像。
