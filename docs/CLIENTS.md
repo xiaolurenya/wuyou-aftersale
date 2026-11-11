@@ -12,7 +12,4 @@
 完整 Electron 工程在本仓库 [`desktop/`](<../desktop/>)：同样的登录连接逻辑，
 `npm install && npm start` 运行，`npm run build:win` 出 Windows 安装包（CI 在 windows-latest 自动构建）。
 
-## 云端版
-浏览器直接打开已部署域名即可，无需安装，手机 / 电脑自适应。
-
 > 用户直接去 [Releases](<https://github.com/xiaolurenya/wuyou-aftersale/releases>) 下载 APK / EXE / AppImage；打 `v*` tag 会自动构建上传。
