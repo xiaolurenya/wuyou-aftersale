@@ -1,0 +1,19 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>无忧售后助手 · 连接</title>
+<style>*{box-sizing:border-box}body{margin:0;font:14px -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#eff6ff,#e0e7ff);min-height:100vh;display:grid;place-items:center}
+.card{background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(15,23,42,.15);padding:34px;width:min(420px,92vw)}
+.logo{width:64px;height:64px;display:block;margin:0 auto 14px}h1{text-align:center;font-size:21px;margin:0 0 4px}.sub{text-align:center;color:#64748b;font-size:12px;margin-bottom:24px}
+label{display:block;font-size:13px;font-weight:600;margin:12px 0 6px}input{width:100%;padding:10px 12px;border:1px solid #e2e8f0;border-radius:9px;outline:none}input:focus{border-color:#2563eb}
+button{width:100%;margin-top:20px;padding:12px;border:0;border-radius:9px;background:#2563eb;color:#fff;font-weight:600;cursor:pointer}button:disabled{opacity:.6}
+.msg{color:#dc2626;font-size:12px;margin-top:10px;min-height:18px}.row{display:flex;align-items:center;gap:7px;margin-top:12px;font-size:13px}.row input{width:auto}</style></head>
+<body><div class="card"><img class="logo" src="../assets/icon.png"><h1>无忧售后助手</h1><div class="sub">连接你的服务器后自动登录</div>
+<label>服务器地址（IP:端口 或 域名）</label><input id="host" placeholder="192.168.1.10:3650 或 xlry.cc.cd">
+<label>账号</label><input id="user" value="admin"><label>密码</label><input id="pass" type="password" placeholder="密码">
+<div class="row"><input type="checkbox" id="https"> 使用 HTTPS（域名）</div>
+<button id="go">连接并登录</button><div class="msg" id="msg"></div></div>
+<script>
+const $ = id => document.getElementById(id);
+window.wuyou.cfg().then(c=>{ if(c.host)$('host').value=c.host; if(c.user)$('user').value=c.user; $('https').checked=!!c.https; });
+$('go').onclick=async()=>{ const b=$('go'); b.disabled=true; $('msg').textContent='正在连接…';
+  const r=await window.wuyou.connect({host:$('host').value,user:$('user').value,pass:$('pass').value,https:$('https').checked});
+  if(r.ok)$('msg').textContent=''; else { $('msg').textContent=r.reason; b.disabled=false; } };
+</script></body></html>
