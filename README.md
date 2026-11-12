@@ -2,7 +2,7 @@
 
 一款装在你自己设备上的售后登记管理软件：飞牛 / 群晖 / 绿联 NAS、Ubuntu 服务器、宝塔面板均可部署。数据自己掌握，一次买断，后续更新免费。
 
-![版本](https://img.shields.io/badge/version-v1.0.0-blue)
+![版本](https://img.shields.io/badge/version-v1.0.3-blue)
 ![许可](https://img.shields.io/badge/license-Proprietary-orange)
 ![端口](https://img.shields.io/badge/port-3650-green)
 ![平台](https://img.shields.io/badge/platform-Feiniu%20%2F%20Synology%20%2F%20UGREEN%20%2F%20Ubuntu%20%2F%20%E5%AE%9D%E5%A1%94-lightgrey)
@@ -93,7 +93,7 @@ docker compose up -d
 客户端装好后：输入 `IP:端口`（如 `192.168.1.10:3650` 不勾 HTTPS）或域名（勾 HTTPS）+ 账号密码 → 自动连接后台，下次打开免输。
 工程源码在本仓库 [`android/`](<android/>) 与 [`desktop/`](<desktop/>)；打 `v*` tag 会自动构建并发布到 Releases。详见 [客户端说明](<docs/CLIENTS.md>)。
 
-[Releases](<https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.0>) 现有可直接下载：`WuyouAftersale-1.0.0-Android.apk`、`WuyouAftersale-1.0.0-Feiniu.fpk`、`WuyouAftersale-1.0.0-Windows-Setup.exe`、`WuyouAftersale-1.0.0-Portable.exe`、`WuyouAftersale-1.0.0-Linux.AppImage`。
+[Releases](<https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.3>) 现有可直接下载：`WuyouAftersale-1.0.3-Android.apk`、`WuyouAftersale-1.0.3-Feiniu.fpk`、`WuyouAftersale-1.0.3-Windows-Setup.exe`、`WuyouAftersale-1.0.3-Portable.exe`、`WuyouAftersale-1.0.3-Linux.AppImage`。
 
 ---
 
