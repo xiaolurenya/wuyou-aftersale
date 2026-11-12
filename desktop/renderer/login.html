@@ -9,11 +9,17 @@ button{width:100%;margin-top:20px;padding:12px;border:0;border-radius:9px;backgr
 <label>服务器地址（IP:端口 或 域名）</label><input id="host" placeholder="192.168.1.10:3650 或 xlry.cc.cd">
 <label>账号</label><input id="user" value="admin"><label>密码</label><input id="pass" type="password" placeholder="密码">
 <div class="row"><input type="checkbox" id="https"> 使用 HTTPS（域名）</div>
+<div class="row"><input type="checkbox" id="remember" checked> 记住密码，下次自动登录 <button id="forget" class="btn ghost sm" style="margin-left:auto">清除</button></div>
 <button id="go">连接并登录</button><div class="msg" id="msg"></div></div>
 <script>
 const $ = id => document.getElementById(id);
-window.wuyou.cfg().then(c=>{ if(c.host)$('host').value=c.host; if(c.user)$('user').value=c.user; $('https').checked=!!c.https; });
+window.wuyou.cfg().then(async c=>{
+  if(c.host)$('host').value=c.host; if(c.user)$('user').value=c.user;
+  $('https').checked=!!c.https; $('remember').checked=c.remember!==false;
+  if(c.hasSaved){ $('msg').textContent='正在自动登录…'; const r=await window.wuyou.autoLogin(); if(!r.ok)$('msg').textContent=r.reason||'自动登录失败，请重新输入'; }
+});
+$('forget').onclick=async()=>{ await window.wuyou.forget(); $('pass').value=''; $('msg').textContent='已清除保存的密码'; };
 $('go').onclick=async()=>{ const b=$('go'); b.disabled=true; $('msg').textContent='正在连接…';
-  const r=await window.wuyou.connect({host:$('host').value,user:$('user').value,pass:$('pass').value,https:$('https').checked});
+  const r=await window.wuyou.connect({host:$('host').value,user:$('user').value,pass:$('pass').value,https:$('https').checked,remember:$('remember').checked});
   if(r.ok)$('msg').textContent=''; else { $('msg').textContent=r.reason; b.disabled=false; } };
 </script></body></html>
