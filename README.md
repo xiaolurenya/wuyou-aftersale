@@ -75,8 +75,7 @@ docker compose up -d
 
 **默认账号密码**：`admin` / `Admin@3650`（首次登录后请在「系统设置 → 人员账号」修改）。若按上面生成了 `.env`，则以 `.env` 里 `BOOTSTRAP_ADMIN_PASSWORD` 为准。
 
-> 飞牛用户也可以直接装套件包：[下载 .fpk](<downloads/无忧售后助手-1.0.0-x86_64.fpk>)，在「套件中心 → 手动安装」导入。
-> 升级：`docker compose pull && docker compose up -d`，数据卷不动、激活码不失效。
+> 飞牛用户请用 Docker Compose 安装（已验证）；fpk 套件包因飞牛官方打包规范未适配已下架，暂不提供。
 
 ---
 
