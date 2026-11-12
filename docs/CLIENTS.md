@@ -1,7 +1,7 @@
 # 客户端与安装包
 
 ## 飞牛 fpk（推荐 NAS 用户）
-[下载 无忧售后助手-1.0.0-x86_64.fpk](<../downloads/无忧售后助手-1.0.0-x86_64.fpk>) → 飞牛「套件中心 → 手动安装」导入。
+飞牛 NAS 请用 Docker Compose 安装（见 README）；fpk 套件包暂不提供。
 包内已含 compose、图标与安装脚本，自动拉取 Docker Hub 的交付镜像。
 
 ## 安卓 APP
