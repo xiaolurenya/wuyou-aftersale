@@ -78,6 +78,12 @@ docker compose up -d
 
 **默认账号密码**：`admin` / `Admin@3650`（首次登录后请在「系统设置 → 人员账号」修改）。若按上面生成了 `.env`，则以 `.env` 里 `BOOTSTRAP_ADMIN_PASSWORD` 为准。
 
+## 自动检查更新
+
+后台侧边栏会显示当前版本和「🔄 检查更新」；作者推送新镜像后，登录时自动弹窗提示，可选「立即更新（复制 SSH 命令）/ 稍后更新 / 关闭」。版本信息来自公开仓 `version.json`，每次镜像推送自动发布。
+
+---
+
 ## 升级（重要：不能直接 up -d）
 
 镜像标签是固定的 `xiaoluya/wuyou-aftersale:1.0.0`，**`docker compose up -d` 不会自动拉新镜像**，本机缓存旧 tag 时会一直用旧版。每次升级必须：
