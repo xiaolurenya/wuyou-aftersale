@@ -4,7 +4,7 @@
 
 一款装在你自己设备上的售后登记管理软件：飞牛 / 群晖 / 绿联 NAS、Ubuntu 服务器、宝塔面板均可部署。数据自己掌握，一次买断，后续更新免费。
 
-![版本](https://img.shields.io/badge/version-v1.6.6-blue)
+![版本](https://img.shields.io/badge/version-v1.6.7-blue)
 ![许可](https://img.shields.io/badge/license-Proprietary-orange)
 ![端口](https://img.shields.io/badge/port-3650-green)
 ![平台](https://img.shields.io/badge/platform-Feiniu%20%2F%20Synology%20%2F%20UGREEN%20%2F%20Ubuntu%20%2F%20%E5%AE%9D%E5%A1%94-lightgrey)
@@ -159,4 +159,4 @@ docker inspect --format='{{index .RepoDigests 0}}' xiaoluya/wuyou-aftersale:1.0.
 
 ---
 
-更多：[安装细节](<docs/INSTALL.md>) · [常见问题](<docs/FAQ.md>) · [价格说明](<docs/PRICING.md>) · [交付镜像说明](<docs/DEPLOY-PUBLIC.md>) · [更新日志](<docs/CHANGELOG.md>)
+单据「进度时间线」已补「品牌」显示（与前台登记一致）；其他：[安装细节](<docs/INSTALL.md>) · [常见问题](<docs/FAQ.md>) · [价格说明](<docs/PRICING.md>) · [交付镜像说明](<docs/DEPLOY-PUBLIC.md>) · [更新日志](<docs/CHANGELOG.md>)
