@@ -2,20 +2,28 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path'), fs = require('fs');
 const store = path.join(app.getPath('userData'), 'config.json');
 let win;
+// 单实例：低配机器多次点图标不反复拉起 Electron
+const gotLock = app.requestSingleInstanceLock();
+if (!gotLock) { app.quit(); }
+else app.on('second-instance', () => { if (win) { if (win.isMinimized()) win.restore(); win.focus(); } });
+
 function load(){ try{ return JSON.parse(fs.readFileSync(store,'utf8')); }catch(e){ return {}; } }
 function save(o){ fs.writeFileSync(store, JSON.stringify(o), {mode:0o600}); }
 function create(){
   win = new BrowserWindow({ width:1360, height:860, minWidth:960, minHeight:620,
-    title:'无忧售后助手', icon:path.join(__dirname,'assets/icon.png'),
-    webPreferences:{ preload:path.join(__dirname,'renderer/preload.js'), contextIsolation:true, nodeIntegration:false } });
+    title:'无忧商服通', icon:path.join(__dirname,'assets/icon.png'),
+    show:false, backgroundColor:'#f8fafc',
+    webPreferences:{ preload:path.join(__dirname,'renderer/preload.js'), contextIsolation:true, nodeIntegration:false,
+      backgroundThrottling:false, spellcheck:false } });
   win.setMenuBarVisibility(false);
+  // 先显示空白窗口再加载，避免「点图标半天没反应」
+  win.once('ready-to-show',()=>{ win.show(); win.focus(); });
   win.loadFile(path.join(__dirname,'renderer/login.html'));
 }
 app.whenReady().then(create);
 app.on('window-all-closed',()=>{ if(process.platform!=='darwin') app.quit(); });
 ipcMain.handle('cfg-get',()=>{
   const c=load();
-  // 不把密码直接回传到渲染页，只告诉它「有保存的凭据」
   return {host:c.host||'',user:c.user||'',https:!!c.https,remember:!!c.remember,hasSaved:!!(c.pass&&c.remember)};
 });
 async function doConnect(o,saveIt){
@@ -32,9 +40,7 @@ async function doConnect(o,saveIt){
   win.loadURL(base+'/');
   return {ok:true};
 }
-ipcMain.handle('connect',async(e,o)=>{
-  try{ return await doConnect(o,true); }catch(err){ return {ok:false,reason:'连接失败：'+err.message}; }
-});
+ipcMain.handle('connect',async(e,o)=>{ try{ return await doConnect(o,true); }catch(err){ return {ok:false,reason:'连接失败：'+err.message}; } });
 ipcMain.handle('auto-login',async()=>{
   const c=load();
   if(!c.remember||!c.pass||!c.host)return {ok:false,reason:'无已保存凭据'};
