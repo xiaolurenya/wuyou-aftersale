@@ -14,6 +14,8 @@ REQ_ID="$(sed -n 's/.*"id":"\([^"]*\)".*/\1/p' "$REQ" 2>/dev/null | head -1)"
 touch "$RES.lock" 2>/dev/null || exit 0
 trap 'rm -f "$RES.lock"' EXIT INT TERM
 echo "{\"ok\":null,\"id\":\"$REQ_ID\",\"startedAt\":\"$(date +%s)\",\"msg\":\"正在下载新镜像…\"}" > "$RES"
+PRE_DB="$DATA/.wuyou-pre-update-$(date +%s).sqlite"
+cp "$DATA/aftersale.db" "$PRE_DB" 2>/dev/null || true
 echo "==== $(date '+%F %T') 收到更新请求 ====" >> "$LOG"
 cd "$WEB" 2>/dev/null || {
   echo "{\"ok\":false,\"id\":\"$REQ_ID\",\"finishedAt\":\"$(date +%s)\",\"msg\":\"compose 目录 $WEB 不存在，容器未动\"}" > "$RES"
