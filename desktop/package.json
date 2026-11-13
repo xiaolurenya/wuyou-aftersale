@@ -1,12 +1,11 @@
 {
   "name": "wuyou-aftersale-desktop",
-  "version": "1.0.0",
+  "version": "1.6.5",
   "private": true,
-  "description": "无忧售后助手 桌面客户端",
+  "description": "无忧商服通 桌面客户端",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win --mac --linux",
     "build:win": "electron-builder --win"
   },
   "devDependencies": {
@@ -15,7 +14,7 @@
   },
   "build": {
     "appId": "com.wuyou.aftersale",
-    "productName": "无忧售后助手",
+    "productName": "无忧商服通",
     "copyright": "Copyright © 2026",
     "directories": {
       "output": "dist"
@@ -27,27 +26,16 @@
     ],
     "win": {
       "target": [
-        "nsis",
-        "portable"
+        "nsis"
       ],
       "icon": "assets/icon.ico"
-    },
-    "mac": {
-      "target": "dmg",
-      "icon": "assets/icon.png"
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ],
-      "icon": "assets/icon.png"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "shortcutName": "无忧售后助手"
+      "shortcutName": "无忧商服通",
+      "deleteAppDataOnUninstall": false
     }
   }
 }
