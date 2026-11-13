@@ -141,9 +141,15 @@ docker inspect --format='{{index .RepoDigests 0}}' xiaoluya/wuyou-aftersale:1.0.
 
 ---
 
+## 数据迁移 / 整机备份
+
+旧版本升级、清空重建前，请在「数据导出 → 整机数据备份 JSON」下载备份（含售后单、字典、用户、设置、安心保设备与报修单、报价商品与渠道账号）。重建后在「数据导出 → 整机数据恢复」选择该 JSON 一键恢复。**Excel / CSV 与表格导入只处理售后登记，不能恢复整机数据。**
+
+---
+
 ## 当前交付镜像
 
-`xiaoluya/wuyou-aftersale:1.0.0` 与 `:latest` 指向同一份最新镜像，当前 digest：`sha256:e9c88ba021221b7b52cf84ea1a8bcfd2b8850faf019ae963687ad23efa4ddc84`。飞牛用户也可在 Releases 下载 `WuyouAftersale-1.0.3-Feiniu.fpk`（官方 fnpack 打包），在应用中心「手动安装」导入。
+`xiaoluya/wuyou-aftersale:1.0.0` 与 `:latest` 指向同一份最新镜像，当前 digest：`sha256:efc4abd4b68e468fd0cb55c93ad14b8156eca94a4426040776be10b470c6a822`。飞牛用户也可在 Releases 下载 `WuyouAftersale-1.0.3-Feiniu.fpk`（官方 fnpack 打包），在应用中心「手动安装」导入。
 
 ---
 
