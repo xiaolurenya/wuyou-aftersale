@@ -1,7 +1,7 @@
 {
   "version": "1.6.2",
-  "digest": "sha256:bd2043d0a123e19e070a240df2421eccc7210cdad99b12abca081a5e7e8dc5d5",
+  "digest": "sha256:f2184e304c8856f3f761ca6e698f69c6c3d6429515240da1452581af65403029",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-13T10:34:52.355Z",
+  "released_at": "2026-11-13T11:00:35.285Z",
   "note": "请执行 docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
 }
