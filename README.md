@@ -4,7 +4,7 @@
 
 一款装在你自己设备上的售后登记管理软件：飞牛 / 群晖 / 绿联 NAS、Ubuntu 服务器、宝塔面板均可部署。数据自己掌握，一次买断，后续更新免费。
 
-![版本](https://img.shields.io/badge/version-v1.6.9-blue)
+![版本](https://img.shields.io/badge/version-v1.6.10-blue)
 ![许可](https://img.shields.io/badge/license-Proprietary-orange)
 ![端口](https://img.shields.io/badge/port-3650-green)
 ![平台](https://img.shields.io/badge/platform-Feiniu%20%2F%20Synology%20%2F%20UGREEN%20%2F%20Ubuntu%20%2F%20%E5%AE%9D%E5%A1%94-lightgrey)
