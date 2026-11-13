@@ -123,7 +123,7 @@ docker inspect --format='{{index .RepoDigests 0}}' xiaoluya/wuyou-aftersale:1.0.
 客户端装好后：输入 `IP:端口`（如 `192.168.1.10:3650` 不勾 HTTPS）或域名（勾 HTTPS）+ 账号密码 → 自动连接后台，下次打开免输。
 工程源码在本仓库 [`android/`](<android/>) 与 [`desktop/`](<desktop/>)；打 `v*` tag 会自动构建并发布到 Releases。详见 [客户端说明](<docs/CLIENTS.md>)。
 
-[Releases](<https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.3>) 现有可直接下载：`WuyouAftersale-1.0.3-Feiniu.fpk`（官方 fnpack 打包）、`WuyouAftersale-1.6.5-Android.apk`、`WuyouAftersale-1.6.5-Windows-Setup.exe`（电脑端仅提供安装版，不再提供绿色版 / AppImage）。
+[Releases](<https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.3>) 现有可直接下载：`WuyouAftersale-1.0.3-Feiniu.fpk`（官方 fnpack 打包）、`WuyouAftersale-1.6.5-Android.apk`、`WuyouAftersale-1.6.5-Windows-Setup.exe`（电脑端仅提供安装版（WuyouAftersale-Windows-Setup.exe），不再提供绿色版 / AppImage；若 Release 暂未挂安装包，可在 `desktop/` 目录执行 `npm install && npm run build:win` 本地生成。
 
 ---
 
