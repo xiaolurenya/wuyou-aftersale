@@ -18,8 +18,8 @@ cd "$WEB" 2>/dev/null || {
   echo "{\"ok\":false,\"finishedAt\":\"$(date +%s)\",\"msg\":\"compose 目录 $WEB 不存在，容器未动\"}" > "$RES"
   rm -f "$REQ"; exit 1
 }
-PULL="docker compose pull"
-command -v timeout >/dev/null 2>&1 && PULL="timeout 240 docker compose pull"
+PULL="docker pull xiaoluya/wuyou-aftersale:1.0.0"
+command -v timeout >/dev/null 2>&1 && PULL="timeout 240 docker pull xiaoluya/wuyou-aftersale:1.0.0"
 if $PULL >> "$LOG" 2>&1 && docker compose up -d --force-recreate >> "$LOG" 2>&1; then
   NEWV=$(docker compose exec -T aftersale cat /app/VERSION 2>/dev/null | tr -d ' \r\n')
   echo "{\"ok\":true,\"finishedAt\":\"$(date +%s)\",\"to\":\"$NEWV\",\"msg\":\"更新完成，当前 v$NEWV\"}" > "$RES"
