@@ -1,7 +1,7 @@
 # 客户端与安装包
 
 ## 飞牛 fpk（推荐 NAS 用户）
-飞牛 NAS 请用 Docker Compose 安装（见 README）；fpk 套件包暂不提供。
+飞牛 NAS 可用 Docker Compose 安装（见 README），或在 Releases 下载 `WuyouAftersale-1.0.3-Feiniu.fpk` 手动安装。
 包内已含 compose、图标与安装脚本，自动拉取 Docker Hub 的交付镜像。
 
 ## 安卓 APP
