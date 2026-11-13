@@ -1,7 +1,1 @@
-{
-  "version": "1.6.2",
-  "digest": "sha256:f1a6bdc229eafbbaeef349aaf6763edef3dc6130dfbefda01027b90c8bec3b21",
-  "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-13T10:18:15.846Z",
-  "note": "请执行 docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
-}
+{"version":"1.6.3","digest":"test","image":"xiaoluya/wuyou-aftersale:1.0.0","released_at":"2026-11-13T10:23:16.290Z"}
