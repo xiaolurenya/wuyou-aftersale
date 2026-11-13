@@ -73,6 +73,23 @@ docker compose up -d
 
 **默认账号密码**：`admin` / `Admin@3650`（首次登录后请在「系统设置 → 人员账号」修改）。若按上面生成了 `.env`，则以 `.env` 里 `BOOTSTRAP_ADMIN_PASSWORD` 为准。
 
+## 升级（重要：不能直接 up -d）
+
+镜像标签是固定的 `xiaoluya/wuyou-aftersale:1.0.0`，**`docker compose up -d` 不会自动拉新镜像**，本机缓存旧 tag 时会一直用旧版。每次升级必须：
+
+```bash
+docker compose pull && docker compose up -d --force-recreate
+```
+
+不要执行 `docker compose down -v`，不要删 `./data`、`./backups`，数据、账号、激活状态都在卷里，升级不会丢。
+
+验证是否最新：
+
+```bash
+docker inspect --format='{{index .RepoDigests 0}}' xiaoluya/wuyou-aftersale:1.0.0
+```
+
+浏览器打开后 **Ctrl+F5** 强刷一次；左侧应能看到「💼 报价系统」，`/bj` 是渠道报价前台。
 
 ---
 
