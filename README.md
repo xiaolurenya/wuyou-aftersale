@@ -123,7 +123,7 @@ docker inspect --format='{{index .RepoDigests 0}}' xiaoluya/wuyou-aftersale:1.0.
 客户端装好后：输入 `IP:端口`（如 `192.168.1.10:3650` 不勾 HTTPS）或域名（勾 HTTPS）+ 账号密码 → 自动连接后台，下次打开免输。
 工程源码在本仓库 [`android/`](<android/>) 与 [`desktop/`](<desktop/>)；打 `v*` tag 会自动构建并发布到 Releases。详见 [客户端说明](<docs/CLIENTS.md>)。
 
-[Releases](<https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.3>) 现有可直接下载（fpk 为官方 fnpack 打包）：`WuyouAftersale-1.0.3-Android.apk`、`WuyouAftersale-1.0.3-Feiniu.fpk`、`WuyouAftersale-1.0.3-Windows-Setup.exe`、`WuyouAftersale-1.0.3-Portable.exe`、`WuyouAftersale-1.0.3-Linux.AppImage`。
+[Releases](<https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.3>) 现有可直接下载：`WuyouAftersale-1.0.3-Feiniu.fpk`（官方 fnpack 打包）、`WuyouAftersale-1.6.5-Android.apk`、`WuyouAftersale-1.6.5-Windows-Setup.exe`（电脑端仅提供安装版，不再提供绿色版 / AppImage）。
 
 ---
 
@@ -155,7 +155,7 @@ docker inspect --format='{{index .RepoDigests 0}}' xiaoluya/wuyou-aftersale:1.0.
 
 ## 当前交付镜像
 
-`xiaoluya/wuyou-aftersale:1.0.0` 与 `:latest` 指向同一份最新镜像，当前 digest：`sha256:efc4abd4b68e468fd0cb55c93ad14b8156eca94a4426040776be10b470c6a822`。飞牛用户也可在 Releases 下载 `WuyouAftersale-1.0.3-Feiniu.fpk`（官方 fnpack 打包），在应用中心「手动安装」导入。
+`xiaoluya/wuyou-aftersale:1.0.0` 与 `:latest` 指向同一份最新镜像，当前版本与 digest 以公开仓 `version.json` 为准（每次镜像推送自动发布）。飞牛用户也可在 Releases 下载 `WuyouAftersale-1.0.3-Feiniu.fpk`（官方 fnpack 打包），在应用中心「手动安装」导入。
 
 ---
 
