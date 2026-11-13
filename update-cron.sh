@@ -9,23 +9,24 @@ REQ="$DATA/.wuyou-update-request"
 RES="$DATA/.wuyou-update-result"
 LOG=/tmp/wuyou-update.log
 [ -f "$REQ" ] || exit 0
+REQ_ID="$(sed -n 's/.*"id":"\([^"]*\)".*/\1/p' "$REQ" 2>/dev/null | head -1)"
 [ -f "$RES.lock" ] && exit 0
 touch "$RES.lock" 2>/dev/null || exit 0
 trap 'rm -f "$RES.lock"' EXIT INT TERM
-echo "{\"ok\":null,\"startedAt\":\"$(date +%s)\",\"msg\":\"正在下载新镜像…\"}" > "$RES"
+echo "{\"ok\":null,\"id\":\"$REQ_ID\",\"startedAt\":\"$(date +%s)\",\"msg\":\"正在下载新镜像…\"}" > "$RES"
 echo "==== $(date '+%F %T') 收到更新请求 ====" >> "$LOG"
 cd "$WEB" 2>/dev/null || {
-  echo "{\"ok\":false,\"finishedAt\":\"$(date +%s)\",\"msg\":\"compose 目录 $WEB 不存在，容器未动\"}" > "$RES"
+  echo "{\"ok\":false,\"id\":\"$REQ_ID\",\"finishedAt\":\"$(date +%s)\",\"msg\":\"compose 目录 $WEB 不存在，容器未动\"}" > "$RES"
   rm -f "$REQ"; exit 1
 }
 PULL="docker pull xiaoluya/wuyou-aftersale:1.0.0"
 command -v timeout >/dev/null 2>&1 && PULL="timeout 240 docker pull xiaoluya/wuyou-aftersale:1.0.0"
 if $PULL >> "$LOG" 2>&1 && docker compose up -d --force-recreate >> "$LOG" 2>&1; then
   NEWV=$(docker compose exec -T aftersale cat /app/VERSION 2>/dev/null | tr -d ' \r\n')
-  echo "{\"ok\":true,\"finishedAt\":\"$(date +%s)\",\"to\":\"$NEWV\",\"msg\":\"更新完成，当前 v$NEWV\"}" > "$RES"
+  echo "{\"ok\":true,\"id\":\"$REQ_ID\",\"finishedAt\":\"$(date +%s)\",\"to\":\"$NEWV\",\"msg\":\"更新完成，当前 v$NEWV\"}" > "$RES"
   echo "==== $(date '+%F %T') 更新完成 v$NEWV ====" >> "$LOG"
 else
-  echo "{\"ok\":false,\"finishedAt\":\"$(date +%s)\",\"msg\":\"pull/up 失败或超时，旧容器未受影响；详见 $LOG\"}" > "$RES"
+  echo "{\"ok\":false,\"id\":\"$REQ_ID\",\"finishedAt\":\"$(date +%s)\",\"msg\":\"pull/up 失败或超时，旧容器未受影响；详见 $LOG\"}" > "$RES"
   echo "==== $(date '+%F %T') 更新失败，容器未动 ====" >> "$LOG"
 fi
 rm -f "$REQ"
