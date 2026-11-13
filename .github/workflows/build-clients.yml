@@ -8,6 +8,7 @@ permissions:
 jobs:
   android-apk:
     runs-on: ubuntu-latest
+    permissions: { contents: write }
     defaults: { run: { working-directory: android } }
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +26,8 @@ jobs:
           keytool -genkeypair -v -keystore release.keystore -alias wuyou -keyalg RSA -keysize 2048 -validity 10000 \
             -storepass wuyou123 -keypass wuyou123 -dname 'CN=Wuyou Aftersale, O=Wuyou, C=CN'
           APKSIGNER=$(find $ANDROID_HOME/build-tools -name apksigner | sort | tail -1)
-          zipalign -p -f 4 "$APK" signed.apk || cp "$APK" signed.apk
+          ZIPALIGN=$(find $ANDROID_HOME/build-tools -name zipalign | sort | tail -1)
+          "$ZIPALIGN" -p -f 4 "$APK" signed.apk || cp "$APK" signed.apk
           "$APKSIGNER" sign --ks release.keystore --ks-pass pass:wuyou123 --key-pass pass:wuyou123 \
             --v2-signing-enabled true --v3-signing-enabled true --out WuyouAftersale-1.6.5-Android.apk signed.apk
           "$APKSIGNER" verify --verbose WuyouAftersale-1.6.5-Android.apk
@@ -39,6 +41,7 @@ jobs:
 
   windows-exe:
     runs-on: windows-latest
+    permissions: { contents: write }
     defaults: { run: { working-directory: desktop } }
     steps:
       - uses: actions/checkout@v4
