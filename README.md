@@ -45,8 +45,6 @@ services:
       PORT: "3650"
       DATA_DIR: /app/data
       NODE_ENV: production
-      TRIAL_DAYS: "15"
-      TRIAL_BYPASS: "0"
       SESSION_SECRET: "${SESSION_SECRET:-}"
       BOOTSTRAP_ADMIN_USER: "admin"
       BOOTSTRAP_ADMIN_PASSWORD: "${BOOTSTRAP_ADMIN_PASSWORD:-Admin@3650}"
@@ -75,7 +73,6 @@ docker compose up -d
 
 **默认账号密码**：`admin` / `Admin@3650`（首次登录后请在「系统设置 → 人员账号」修改）。若按上面生成了 `.env`，则以 `.env` 里 `BOOTSTRAP_ADMIN_PASSWORD` 为准。
 
-> 飞牛用户请用 Docker Compose 安装（已验证）；fpk 套件包因飞牛官方打包规范未适配已下架，暂不提供。
 
 ---
 
@@ -83,7 +80,6 @@ docker compose up -d
 
 | 方式 | 下载 / 说明 |
 |---|---|
-| 飞牛 fpk | [下载 .fpk](<downloads/无忧售后助手-1.0.0-x86_64.fpk>)，套件中心手动安装 |
 | 安卓 APP | [Releases 下载 APK](<https://github.com/xiaolurenya/wuyou-aftersale/releases>) |
 | 电脑客户端 | [Releases 下载 Windows 安装包 / Linux AppImage](<https://github.com/xiaolurenya/wuyou-aftersale/releases>) |
 | 一键脚本 | `./install.sh` |
@@ -92,7 +88,7 @@ docker compose up -d
 客户端装好后：输入 `IP:端口`（如 `192.168.1.10:3650` 不勾 HTTPS）或域名（勾 HTTPS）+ 账号密码 → 自动连接后台，下次打开免输。
 工程源码在本仓库 [`android/`](<android/>) 与 [`desktop/`](<desktop/>)；打 `v*` tag 会自动构建并发布到 Releases。详见 [客户端说明](<docs/CLIENTS.md>)。
 
-[Releases](<https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.3>) 现有可直接下载：`WuyouAftersale-1.0.3-Android.apk`、`WuyouAftersale-1.0.3-Feiniu.fpk`、`WuyouAftersale-1.0.3-Windows-Setup.exe`、`WuyouAftersale-1.0.3-Portable.exe`、`WuyouAftersale-1.0.3-Linux.AppImage`。
+[Releases](<https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.3>) 现有可直接下载（fpk 为官方 fnpack 打包）：`WuyouAftersale-1.0.3-Android.apk`、`WuyouAftersale-1.0.3-Feiniu.fpk`、`WuyouAftersale-1.0.3-Windows-Setup.exe`、`WuyouAftersale-1.0.3-Portable.exe`、`WuyouAftersale-1.0.3-Linux.AppImage`。
 
 ---
 
