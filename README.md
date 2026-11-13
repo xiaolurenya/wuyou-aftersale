@@ -81,7 +81,14 @@ docker compose up -d
 docker compose pull && docker compose up -d --force-recreate
 ```
 
-不要执行 `docker compose down -v`，不要删 `./data`、`./backups`，数据、账号、激活状态都在卷里，升级不会丢。
+如果之前已经缓存过旧镜像、pull 后仍显示旧界面，强制删本地旧 tag 再拉：
+
+```bash
+docker rmi xiaoluya/wuyou-aftersale:1.0.0
+docker compose pull && docker compose up -d --force-recreate
+```
+
+升级完成后浏览器 **Ctrl+F5 / Ctrl+Shift+R** 清一次静态缓存（首页已带 `?v=` 版本号，正常会自动更新）。不要执行 `docker compose down -v`，不要删 `./data`、`./backups`，数据、账号、激活状态都在卷里，升级不会丢。
 
 验证是否最新：
 
