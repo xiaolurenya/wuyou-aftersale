@@ -1,7 +1,7 @@
 {
-  "version": "1.6.19",
-  "digest": "sha256:5f9ebe47f7c596fe954c8731e3141bb313d87bd665920e3b5bf2ebb1ecee6f6f",
+  "version": "1.6.20",
+  "digest": "sha256:e99f45fe2774ea18eddc28d020510b568aa168c277367e983762bc9f8fa1dfe7",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-14T04:29:42.116Z",
-  "note": "请执行 docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新；若使用一键更新，请先安装 update-cron.sh 并加入 crontab。"
+  "released_at": "2026-11-14T04:38:36.794Z",
+  "note": "请执行 docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
 }
