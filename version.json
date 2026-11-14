@@ -1,7 +1,7 @@
 {
   "version": "1.6.30",
-  "digest": "sha256:3a46b46f86be69129ac5eac907cb6dd203213ee361b3b63341af77dcb7c176b7",
+  "digest": "sha256:c9a8c82c27fc72f8d2d3fd3073d84d692127054c9f8d11f50d49decddd5851f1",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-14T09:39:45.262Z",
-  "note": "一机一码：必须按用户机器码发码；请执行 docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
+  "released_at": "2026-11-14T12:51:02.648Z",
+  "note": "修复镜像权限导致无法启动：必须拉取此版本；docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
 }
