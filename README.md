@@ -4,7 +4,7 @@
 
 一款装在自己设备上的售后登记管理软件：飞牛 / 群晖 / 绿联 NAS、Ubuntu / Debian 服务器、宝塔面板均可部署。数据自己掌握，一次买断，后续更新免费。
 
-![版本](https://img.shields.io/badge/version-v1.6.28-blue)
+![版本](https://img.shields.io/badge/version-v1.6.29-blue)
 ![许可](https://img.shields.io/badge/license-Proprietary-orange)
 ![端口](https://img.shields.io/badge/port-3650-green)
 ![平台](https://img.shields.io/badge/platform-Feiniu%20%2F%20Synology%20%2F%20UGREEN%20%2F%20Ubuntu%20%2F%20%E5%AE%9D%E5%A1%94-lightgrey)
@@ -54,6 +54,7 @@ services:
       SESSION_SECRET: "${SESSION_SECRET:-}"
       BOOTSTRAP_ADMIN_USER: "admin"
       BOOTSTRAP_ADMIN_PASSWORD: "${BOOTSTRAP_ADMIN_PASSWORD:-Admin@3650}"
+      LICENSE_PUBLIC_KEY: "${LICENSE_PUBLIC_KEY:-8385f7824215f272745c17fb60c39c39fd96b2deafbada3ba1d06d3981208201}"
       CF_CONFIG_URL: "https://as.xlry.cc.cd/v1/config"
     healthcheck:
       test: ["CMD","node","-e","fetch('http://127.0.0.1:3650/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
