@@ -8,6 +8,8 @@ services:
     volumes:
       - ./data:/app/data
       - ./backups:/app/backups
+      # 一键更新需要：容器内自动拉镜像并重建；如不需要可注释此行
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       TZ: Asia/Shanghai
       PORT: "3650"
