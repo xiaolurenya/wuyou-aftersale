@@ -71,3 +71,7 @@ sudo sh ./install-host-cron.sh
 ```
 
 容器不能替宿主机自动写 crontab；这一步只需跑一次。
+
+## 新版 compose 自动挂载 docker.sock
+
+新版 compose 默认挂 `/var/run/docker.sock`；拉起容器后，后台「立即更新」会直接通过 Docker API 拉镜像并重建自身，不需要宿主机 crontab。若不希望开放 docker.sock，注释该行并改用 `install-host-cron.sh`。
