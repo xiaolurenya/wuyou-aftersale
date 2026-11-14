@@ -59,3 +59,15 @@ sudo systemctl restart wuyou
 ```
 
 ```
+
+## 镜像内置脚本
+
+新镜像里已带 `/app/update-cron.sh` 和 `/app/install-host-cron.sh`。首次安装可在宿主机执行：
+
+```bash
+docker cp aftersale:/app/update-cron.sh ./update-cron.sh
+docker cp aftersale:/app/install-host-cron.sh ./install-host-cron.sh
+sudo sh ./install-host-cron.sh
+```
+
+容器不能替宿主机自动写 crontab；这一步只需跑一次。
