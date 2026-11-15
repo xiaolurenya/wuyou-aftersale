@@ -1,7 +1,7 @@
 {
   "version": "1.6.33",
-  "digest": "",
+  "digest": "sha256:1290bed70c13c84d6e2708d41f1d9df6b8f67b5a274038f89868fcf18ff9a32e",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-15T13:21:32.905Z",
+  "released_at": "2026-11-15T13:39:36.713Z",
   "note": "修复修改密码二次确认、整机备份导入绕过激活；docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
 }
