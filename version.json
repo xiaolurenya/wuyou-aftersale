@@ -2,6 +2,6 @@
   "version": "1.6.31",
   "digest": "sha256:e31af0be8aafb9d901ad233485f183b635a73e1d98856066559b2ddc11a94db6",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-15T11:54:20.699Z",
-  "note": "请执行 docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
+  "released_at": "2026-11-15T11:55:41.946Z",
+  "note": "新增取件中心；请执行 docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
 }
