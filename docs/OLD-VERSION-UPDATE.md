@@ -1,15 +1,8 @@
-# 旧版本（如 v1.6.8）一键更新点不动
+# 旧版本手动升级说明
 
-## 结论
+旧版本的一键更新依赖两个组成部分：容器内写入更新请求，以及宿主机定时任务执行镜像拉取与容器重建。缺少宿主机定时任务时，后台按钮会停留在等待状态。
 
-一键更新成功需要两端配合：
-
-1. 容器里：`POST /api/app/update` 写 `DATA_DIR/.wuyou-update-request`
-2. 宿主机：**每分钟 crontab 运行 `update-cron.sh`**，看到请求后 `docker pull + docker compose up -d --force-recreate`，并回写 `.wuyou-update-result`
-
-如果宿主机没有安装这个 cron，容器只写请求文件，结果文件永远不出现，前端就会一直显示「等待宿主机更新任务…」。本机昨晚成功，是因为本机 crontab 和脚本都在；客户机器上没有这一步就会卡住。
-
-## 旧版本最快的恢复办法（不用点弹窗）
+## 推荐升级命令
 
 在 compose 目录执行：
 
@@ -19,59 +12,16 @@ docker compose pull
 docker compose up -d --force-recreate
 ```
 
-然后 Ctrl+F5。数据卷 `./data` 不动，账号和登记不会丢。
+完成后浏览器执行 `Ctrl+F5` 强制刷新。数据目录 `./data` 保持不变。
 
-## 让以后「点按钮」也能自动更新
+## 宿主机定时任务
 
-把公开仓的 `update-cron.sh` 放到 compose 目录，装一次 cron：
+如需保留旧版一键更新流程，可将 `update-cron.sh` 与 `install-host-cron.sh` 放置到 compose 目录，并通过 `install-host-cron.sh` 安装定时任务。脚本负责更新前备份、拉取镜像、重建容器、校验数据与回写结果。
 
-```bash
-cd /你的/compose目录
-chmod +x ./update-cron.sh
-( crontab -l 2>/dev/null | grep -v 'update-cron.sh' ; echo "* * * * * /bin/sh $(pwd)/update-cron.sh" ) | crontab -
-```
+## 新版 compose
 
-如果 compose 目录和数据目录不在默认位置：
+当前 compose 默认挂载 `/var/run/docker.sock`；容器可通过 Docker API 拉取镜像并重建自身。禁用该挂载时，应采用宿主机定时任务或手动升级命令。
 
-```bash
-( crontab -l 2>/dev/null | grep -v 'update-cron.sh' ; echo "* * * * * WUYOU_COMPOSE_DIR=$(pwd) WUYOU_DATA=$(pwd)/data /bin/sh $(pwd)/update-cron.sh" ) | crontab -
-```
+## 裸机与托管实例
 
-再回到后台点「立即更新」。脚本会：
-- 更新前自动备份 `aftersale.db`
-- 拉镜像、重建容器
-- 更新后校验 users / records / license_state；异常自动回滚
-- 回写结果，前端自动刷新
-
-## 为什么本地 NAS 成功、客户不成功
-
-本地 NAS 上我配置过 crontab、修过 `update-cron.sh`、加过 requestId/结果文件；这些都在**宿主机**，不会随 Docker 镜像自动发给客户。客户只拉了镜像，没有装 cron，所以按钮看起来「没反应」。
-
-## 托管/裸机版注意
-
-不用 Docker 的托管版不要开这个按钮，应由服务器管理员统一：
-
-```bash
-cd /opt/wuyou/app
-# 覆盖新源码
-npm ci
-sudo systemctl restart wuyou
-```
-
-```
-
-## 镜像内置脚本
-
-新镜像里已带 `/app/update-cron.sh` 和 `/app/install-host-cron.sh`。首次安装可在宿主机执行：
-
-```bash
-docker cp aftersale:/app/update-cron.sh ./update-cron.sh
-docker cp aftersale:/app/install-host-cron.sh ./install-host-cron.sh
-sudo sh ./install-host-cron.sh
-```
-
-容器不能替宿主机自动写 crontab；这一步只需跑一次。
-
-## 新版 compose 自动挂载 docker.sock
-
-新版 compose 默认挂 `/var/run/docker.sock`；拉起容器后，后台「立即更新」会直接通过 Docker API 拉镜像并重建自身，不需要宿主机 crontab。若不希望开放 docker.sock，注释该行并改用 `install-host-cron.sh`。
+裸机 / 托管实例由服务器管理员统一执行源码替换、依赖安装与服务重启；后台一键更新按钮不适用于该模式。
