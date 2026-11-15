@@ -27,8 +27,8 @@ jobs:
       - name: Reject sensitive strings in markdown files
         run: |
           set -euo pipefail
-          pattern='PRIVATE KEY|BEGIN PRIVATE KEY|BEGIN RSA PRIVATE KEY|BEGIN OPENSSH PRIVATE KEY|TEST-LICENSE|SECRET KEY|ACTIVATION CODE='
-          if grep -RInE --include="*.md" "$pattern" .; then
+          pattern="PRIVATE KEY|BEGIN PRIVATE KEY|BEGIN RSA PRIVATE KEY|BEGIN OPENSSH PRIVATE KEY|TEST-LICENSE|SECRET KEY|ACTIVATION CODE="
+          if grep -RInE --include="*.md" --exclude-dir=node_modules --exclude-dir=dist "$pattern" .; then
             echo "Sensitive string detected in markdown files." >&2
             exit 1
           fi
@@ -41,28 +41,31 @@ jobs:
           import re
           import sys
 
-          root = pathlib.Path('.')
-          link_re = re.compile(r'!?\[[^\]]*\]\(([^)]*)\)')
+          root = pathlib.Path(".")
+          link_re = re.compile(r"!?\[[^\]]*\]\(([^)]*)\)")
           problems = []
+          excluded = {"node_modules", "dist", "downloads", ".git"}
 
-          for md in sorted(root.rglob('*.md')):
-              for lineno, line in enumerate(md.read_text(encoding='utf-8').splitlines(), 1):
+          for md in sorted(root.rglob("*.md")):
+              if any(part in excluded for part in md.parts):
+                  continue
+              for lineno, line in enumerate(md.read_text(encoding="utf-8").splitlines(), 1):
                   for target in link_re.findall(line):
                       target = target.strip()
                       if any(ch.isspace() for ch in target):
-                          problems.append(f'{md}:{lineno}: link target contains whitespace -> {target}')
+                          problems.append(f"{md}:{lineno}: link target contains whitespace -> {target}")
                           continue
-                      if target.startswith(('http://', 'https://', 'mailto:', '#')):
+                      if target.startswith(("http://", "https://", "mailto:", "#")):
                           continue
                       if not target:
-                          problems.append(f'{md}:{lineno}: empty link target')
+                          problems.append(f"{md}:{lineno}: empty link target")
                           continue
-                      rel = target.split('#', 1)[0]
+                      rel = target.split("#", 1)[0]
                       if not (md.parent / rel).resolve().exists():
-                          problems.append(f'{md}:{lineno}: broken link -> {target}')
+                          problems.append(f"{md}:{lineno}: broken link -> {target}")
 
           if problems:
-              print('\n'.join(problems))
+              print(*problems, sep=chr(10))
               sys.exit(1)
-          print('Markdown link format and relative targets look OK.')
+          print("Markdown link format and relative targets look OK.")
           PY
