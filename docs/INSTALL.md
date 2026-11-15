@@ -1,117 +1,107 @@
 # 安装说明（飞牛 / 群晖 / 绿联 NAS）
 
-本文面向第一次使用 Docker 的用户。软件私有部署在 NAS 上，宿主端口默认 3650；本仓库只提供文档，不提供镜像、源码或激活码。镜像地址、默认账号与激活码获取方式以作者提供的说明为准（作者微信：待填写；备用联系方式：待填写）。
+本文档说明 Docker Compose 部署流程。软件默认使用宿主端口 3650；公开仓库仅提供文档、compose 模板与安装脚本，不包含核心源码、激活码或私有部署包。
 
-## 开始前准备
+## 准备条件
 
-1. 确认 NAS 可以运行 Docker 与 Docker Compose（不同系统里可能叫「Docker」「Container Manager」「容器」）。
-2. 确认电脑和 NAS 在同一个局域网，并能在 NAS 的网络设置里查到「设备 IP」，例如 `192.168.x.x`（此处仅为格式示例）。
-3. 准备一个用于保存数据的目录。下文一律用 `/vol1/docker/aftersale` 作为**通用占位示例**，请按自己 NAS 上实际显示的卷路径修改；群晖常见形如 `/volume1/docker/aftersale`，飞牛、绿联的卷名请在文件管理里确认。路径写错会导致数据存到别处，务必先看一眼实际目录。
-4. 从作者处取得 `docker-compose.yml`（或 `compose.yaml`）与镜像地址；本仓库不包含这些文件，也不附带任何账号密码。
+1. NAS 或服务器需支持 Docker 与 Docker Compose v2。
+2. 访问终端与 NAS 需处于同一网络，或已配置可直达的域名 / 反向代理。
+3. 准备独立的数据目录与备份目录。示例路径为 `/vol1/docker/aftersale`，实际路径以设备存储卷为准。
+4. 使用公开仓提供的 [docker-compose.yml](../docker-compose.yml) 与 [.env.example](../.env.example) 模板。
 
-## 通用 compose 示例（占位版）
-
-把作者提供的 compose 文件放进上面建好的目录。文件里需要关注的只有下面几行，示例仅用于说明格式：
+## 通用 compose 模板
 
 ```yaml
 services:
   aftersale:
-    image: REPLACE_WITH_IMAGE_FROM_AUTHOR   # 镜像地址：待填写，以作者提供的版本为准
+    image: xiaoluya/wuyou-aftersale:1.0.0
     container_name: aftersale
-    ports:
-      - "3650:3650"                        # 左边是宿主端口（可改），右边是容器端口（不要改）
-    volumes:
-      - /vol1/docker/aftersale:/data       # 左边是示例主机路径，按实际改；右边以作者提供的文件为准
     restart: unless-stopped
+    ports:
+      - "3650:3650"
+    volumes:
+      - ./data:/app/data
+      - ./backups:/app/backups
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      TZ: Asia/Shanghai
+      PORT: "3650"
+      DATA_DIR: /app/data
+      BACKUP_DIR: /app/backups
+      NODE_ENV: production
+      SESSION_SECRET: "${SESSION_SECRET:-}"
+      BOOTSTRAP_ADMIN_USER: "admin"
+      BOOTSTRAP_ADMIN_PASSWORD: "${BOOTSTRAP_ADMIN_PASSWORD:-Admin@3650}"
+      LICENSE_PUBLIC_KEY: "${LICENSE_PUBLIC_KEY:-8385f7824215f272745c17fb60c39c39fd96b2deafbada3ba1d06d3981208201}"
+      CF_CONFIG_URL: "https://as.xlry.cc.cd/v1/config"
+    healthcheck:
+      test: ["CMD","node","-e","fetch('http://127.0.0.1:3650/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
 ```
 
-> 注意：`volumes` 左边的主机目录就是你的数据所在位置；右边的容器内路径以作者提供的 compose 文件为准，不要自行改动。升级、重装时都不要删除或清空左边这个目录。
+`./data` 保存 SQLite、设备指纹、会话密钥与系统设置；`./backups` 保存自动备份与迁移包。升级、重装时不得删除或清空这两个目录。
 
-## 一、飞牛 NAS
+## 飞牛 NAS
 
-1. 在系统的应用 / 设置中启用 Docker 与 Docker Compose 功能（不同版本菜单名称略有差异，以实际界面为准）。
-2. 打开「文件管理」，在合适的存储卷上新建目录，例如 `/vol1/docker/aftersale`；记下这个路径，稍后要填进 compose 文件。
-3. 把作者提供的 `docker-compose.yml` 上传到该目录，用文本编辑打开，确认 `ports` 为 `"3650:3650"`，并确认 `volumes` 左侧路径与第 2 步一致。
-4. 打开飞牛自带终端（或开启 SSH 后用终端工具登录），进入该目录并执行：
+1. 在系统设置中启用 Docker 与 Compose 功能。
+2. 在文件管理中创建数据目录，例如 `/vol1/docker/aftersale`。
+3. 将 compose 文件与 `.env` 放入该目录。
+4. 在终端进入目录并执行 `docker compose up -d`。
+5. 浏览器访问 `http://设备IP:3650`。
 
-   ```bash
-   cd /vol1/docker/aftersale    # 按实际路径改
-   docker compose up -d
-   ```
+## 群晖 NAS（DSM）
 
-5. 看到容器启动成功后，在电脑浏览器访问 `http://设备IP:3650`。
+1. DSM 7.x 安装 Container Manager；较旧版本使用 Docker 套件。
+2. 在 File Station 中创建 `docker/aftersale` 目录。
+3. 将 compose 文件与 `.env` 放入该目录。
+4. 通过 Container Manager「项目」创建，或在 SSH 中执行 `docker compose up -d`。
+5. 防火墙放行 TCP 3650 后访问 `http://设备IP:3650`。
 
-## 二、群晖 NAS（DSM）
+## 绿联 NAS
 
-1. DSM 7.x：在「套件中心」安装并打开 Container Manager；较旧系统使用 Docker 套件。若用命令行方式，先在「控制面板 → 终端机和 SNMP」中开启 SSH（用完后可关闭）。
-2. 用 File Station 在 `docker` 共享文件夹下新建 `aftersale`，例如 `/volume1/docker/aftersale`（通用示例，按实际改）。
-3. 上传作者提供的 `docker-compose.yml` 到该目录，确认端口 `3650` 与左侧主机路径。
-4. 两种方式二选一：
-   - 图形界面：Container Manager →「项目」→ 新增 → 选择该目录与 compose 文件 → 按提示创建并启动；
-   - 命令行：SSH 登录后执行
+1. 在应用中心启用 Docker / 容器相关组件。
+2. 在文件管理中创建数据目录。
+3. 将 compose 文件与 `.env` 放入该目录。
+4. 在终端进入目录并执行 `docker compose up -d`。
+5. 浏览器访问 `http://设备IP:3650`；无法访问时检查防火墙与端口映射。
 
-     ```bash
-     sudo -i
-     cd /volume1/docker/aftersale    # 按实际路径改
-     docker compose up -d
-     ```
+## 首次登录
 
-5. 在「控制面板 → 安全性 → 防火墙」放行 TCP 3650（若改过宿主端口，则放行新端口），然后访问 `http://设备IP:3650`。
+1. 打开 `http://设备IP:3650`，使用 `admin` 与 `.env` 中指定的初始密码登录。
+2. 首次登录后需修改默认密码。
+3. 按岗位创建独立账号并配置角色权限。
+4. 首次安装提供 15 天试用；到期后按界面展示的方式获取激活码。
 
-## 三、绿联 NAS
+## 网络与防火墙
 
-1. 在应用中心安装并启用 Docker / 容器相关应用，并开启系统提供的终端或 SSH 功能（不同固件版本入口位置不同，以实际界面为准）。
-2. 在文件管理里新建数据目录，例如 `/vol1/docker/aftersale`（通用示例，按实际卷名改）。
-3. 上传作者提供的 `docker-compose.yml`，确认 `ports` 与 `volumes` 左侧路径。
-4. 打开终端，进入目录并启动：
+- 默认端口为 TCP 3650；修改 `ports` 左侧宿主端口后，需同步调整防火墙与访问地址。
+- 同一局域网内的电脑、平板可通过浏览器访问同一地址并按账号并行使用。
+- 不建议将 3650 直接暴露至公网；外网访问需结合 VPN、反向代理与 HTTPS。
+- 激活校验采用 Ed25519 离线签名，断网环境可完成校验；联网主要用于获取激活码、联系方式与下载新镜像。
 
-   ```bash
-   cd /vol1/docker/aftersale    # 按实际路径改
-   docker compose up -d
-   ```
+## 升级
 
-   若系统提示命令为旧版 `docker-compose`，请按界面提示使用 `docker-compose up -d`。
+1. 升级前在系统内导出整机 JSON 备份，并复制数据目录与备份目录。
+2. 在 compose 目录执行：
 
-5. 在浏览器访问 `http://设备IP:3650`；如无法打开，检查系统防火墙是否放行 TCP 3650。
+```bash
+docker compose pull
+docker compose up -d --force-recreate
+```
 
-## 首次登录与修改密码
+3. 浏览器执行 `Ctrl+F5` 强制刷新，并核对版本号与历史单据。
 
-1. 打开 `http://设备IP:3650`，使用作者提供的默认账号登录（默认账号与初始密码：待填写，以作者提供的说明为准；本仓库不提供任何账号密码）。
-2. **首次登录后立即修改默认密码**：进入账号 / 个人设置，改为仅自己知道的新密码并妥善保存。
-3. 建议为每位同事创建独立账号，并按超级管理员 / 管理员 / 登记员 / 只读四级角色分配权限，配合操作日志便于追溯。
-4. 首次安装免费试用 15 天；到期弹窗会展示作者微信二维码与联系方式（占位：待填写），按提示输入激活码即可继续使用。试用期内数据不会丢失，详见 [常见问题](FAQ.md)。
-
-## 防火墙与局域网访问
-
-- 只需在 NAS 防火墙放行 TCP 3650（若修改过宿主端口，则放行修改后的端口）。
-- 同一局域网内的电脑、平板用浏览器访问 `http://设备IP:3650` 即可多人使用，无需公网。建议在路由器里给 NAS 设置固定 IP 或 DHCP 地址保留，避免设备 IP 变化后所有人都打不开。
-- 不建议把 3650 直接映射到公网；如需在外网使用，请自行采用 VPN 等方式，相关配置不在本文档范围内。
-- 激活采用 Ed25519 离线签名，断网也能校验；联网主要用于获取激活码、联系作者与下载新镜像。
-
-## 升级（无需重新付费）
-
-已购用户后续所有版本更新永久免费，升级时**不删除、不清空数据卷**，激活码继续有效。
-
-1. 升级前先在系统内导出一份 xlsx / CSV / JSON 全量备份，并把数据卷目录复制一份到别处。
-2. 进入 compose 文件所在目录，拉取新镜像并重建容器：
-
-   ```bash
-   cd /vol1/docker/aftersale    # 按实际路径改
-   docker compose pull
-   docker compose up -d
-   ```
-
-3. 刷新 `http://设备IP:3650`，确认版本号与原有单据都在；若界面提示需要重新激活，联系作者（联系方式：待填写）。
-
-> 不要执行会删除主机数据目录的命令，也不要在升级时更换 `volumes` 左侧路径；换路径等于换了一份空数据。
+升级过程中不得执行 `docker compose down -v`，不得删除 `./data`、`./backups`。
 
 ## 卸载与保留数据
 
-- 只停止服务、保留数据：在 compose 目录执行 `docker compose down`。容器被移除，但 `/vol1/docker/aftersale` 这类主机目录里的全部数据仍在；以后用同一 compose 文件执行 `docker compose up -d` 即可恢复。
-- 彻底卸载前：先导出全量备份，并把数据卷目录整体复制到 NAS 其他位置或外部存储，确认备份可读、路径无误后，再删除容器与 compose 文件；最后再决定是否删除主机数据目录。**删除主机目录不可恢复，请务必二次确认路径**。
-- 不再需要的镜像可用 `docker rmi` 清理（可选），不影响已保存的业务数据。
-- 更换 NAS、重装系统或迁移数据盘之前，请先按上述方式备份，并联系作者确认激活码处理方式（以作者说明为准，见 [价格与授权](PRICING.md)）。
+- 仅停止服务时执行 `docker compose down`；容器移除后，主机目录数据仍保留。
+- 彻底卸载前需完成整机 JSON 备份与目录级复制，确认备份可读取后再删除容器与 compose 文件。
+- 更换 NAS、重装系统或迁移数据盘前，需先完成备份并确认目标设备的激活码处理方式。
 
 ---
 
-更多问题见 [常见问题](FAQ.md)，价格与授权见 [价格与授权](PRICING.md)，功能概览见 [项目介绍](../README.md)。
+相关文档：[常见问题](FAQ.md) · [价格与授权](PRICING.md) · [项目介绍](../README.md)
