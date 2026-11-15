@@ -1,37 +1,51 @@
 # 无忧商服通
 
-![无忧商服通](<logo-wordmark.svg>)
+![无忧商服通](logo-wordmark.svg)
 
-一款装在自己设备上的售后登记管理软件：飞牛 / 群晖 / 绿联 NAS、Ubuntu / Debian 服务器、宝塔面板均可部署。数据自己掌握，一次买断，后续更新免费。
+**售后 · 查询 · 报价 一站式**
 
-![版本](https://img.shields.io/badge/version-v1.6.30-blue)
+无忧商服通是一款私有部署的售后登记管理软件，适用于飞牛 NAS、群晖 NAS、绿联 NAS、Ubuntu / Debian 服务器、宝塔面板及云端托管环境。业务数据保存在部署方控制的设备或数据库中，采用一次性买断授权，后续版本更新免费。
+
+![版本](https://img.shields.io/badge/version-v1.6.33-blue)
 ![许可](https://img.shields.io/badge/license-Proprietary-orange)
 ![端口](https://img.shields.io/badge/port-3650-green)
 ![平台](https://img.shields.io/badge/platform-Feiniu%20%2F%20Synology%20%2F%20UGREEN%20%2F%20Ubuntu%20%2F%20%E5%AE%9D%E5%A1%94-lightgrey)
 
 ---
 
-## 亮点
+## 功能模块
 
-- **售后登记**：日期自动填当天，型号 / 上家 / 送修单位可下拉可手输、自动建档；序列号支持一单多台、批量粘贴、扫码枪直连
-- **任意检索**：一个搜索框匹配上家、型号、单位、联系人、序列号、快递单号；索引查询，不漏单
-- **返回录入**：扫码定位原单 → 批量填返回日期、状态、返回快递单号；换新只记新序列号，旧序列号保留
-- **打印明细**：按上家汇总、每个上家单独一页；日期区间同时匹配登记日或返回日，已返回含换新
-- **权限与账号**：超级管理员 / 管理员 / 登记员 / 只读，权限点逐项可配
-- **授权**：15 天试用 → 到期展示收款码与联系方式 → 粘贴激活码离线激活 → 永久使用，后续版本不再收费
-- **数据安全**：每日备份 + 整机迁移 JSON；NAS 坏了换设备也能恢复
-- **安心保**：`/cx` 用户自助查保修到期，可提交保修寄送 / 一键上门报修；商家后台审核、处理记录、回寄单号、进度查询
-- **渠道报价**：`/bj` 匿名看零售价，渠道账号登录后按等级看普通 / 核心渠道价；账号仅管理员开通
-- **客户端**：浏览器 / 安卓 APP / Windows 安装版，输 IP:端口 或域名 + 账号密码自动连接
-- **手机自适应**：查询页、后台、报价前台手机浏览器均适配
+- **前台登记**：登记日期自动填充；产品型号、上家、送修单位支持下拉选择与自动建档；序列号支持一单多台、批量粘贴与扫码枪录入。
+- **任意检索**：统一检索上家、型号、单位、联系人、序列号、快递单号、取件信息与备注。
+- **返回录入**：扫码定位原单，批量录入返回日期、状态、返回快递单号；换新单保留原序列号并记录新序列号。
+- **取件中心**：基于已返回 / 已换新单据登记客户取件方式，支持自取、快递、商家自送；任意检索与单据详情同步展示取件信息。
+- **打印明细**：按上家汇总，每个上家独立成页；日期区间同时匹配登记日与返回日，覆盖已返回与已换新单据。
+- **导入导出**：支持 Excel / CSV 售后登记导入，支持当前查询结果导出、整机 JSON 备份与恢复。
+- **首页统计**：集中展示登记总数、在修数量、已返回数量、今日登记、今日返回、平均返修天数、超期提醒与商家维度统计。
+- **权限与账号**：内置超级管理员、管理员、登记员、只读角色，权限点可按角色配置，关键操作写入审计日志。
+- **激活与试用**：首次安装提供 15 天试用；到期后展示购买方式；激活码采用 Ed25519 离线签名，断网环境可校验。
+- **备份与恢复**：每日备份、整机 JSON 备份、整机恢复与迁移包；整机恢复后授权状态按目标设备重新初始化。
+- **安心保 `/cx`**：终端用户查询保修到期、设备参数与剩余天数，提交保修寄送或上门报修；后台审核、处理记录、回寄单号与进度查询完整闭环。
+- **保修设置**：维护设备档案、商家信息、寄送说明、上门服务说明与公开查询文案。
+- **渠道报价 `/bj`**：匿名访问展示零售价；渠道账号登录后按等级展示普通渠道价 / 核心渠道价；账号由后台统一开通。
+- **检查更新 / 一键更新**：后台显示当前版本，支持检查更新；Docker Compose 部署支持在授权范围内挂载 `docker.sock` 完成自动更新。
+- **客户端**：浏览器、安卓 APK、Windows 安装版均可连接同一服务地址；手机浏览器适配查询页、后台与报价前台。
 
 ---
 
-## 安装（Docker Compose，推荐）
+## 当前版本
 
-> 支持：飞牛 / 群晖 / 绿联 NAS、Ubuntu / Debian、宝塔面板（安装 Docker 管理器后创建容器编排）。只要是能跑 Docker Compose v2 的 Linux，步骤一样。
+当前交付版本：**v1.6.33**。
 
-把下面内容存为 `docker-compose.yml`：
+`xiaoluya/wuyou-aftersale:1.0.0` 与 `:latest` 指向同一份最新镜像；版本与 digest 以公开仓 [version.json](version.json) 为准。
+
+---
+
+## 安装（Docker Compose）
+
+适用环境：飞牛 / 群晖 / 绿联 NAS、Ubuntu / Debian、宝塔面板及支持 Docker Compose v2 的 Linux 主机。
+
+将以下内容保存为 `docker-compose.yml`：
 
 ```yaml
 services:
@@ -44,12 +58,13 @@ services:
     volumes:
       - ./data:/app/data
       - ./backups:/app/backups
-      # 一键更新需要：容器内自动拉镜像并重建；如不需要可注释此行
+      # 后台一键更新需要挂载 Docker Socket；不需要自动更新时可注释此行
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       TZ: Asia/Shanghai
       PORT: "3650"
       DATA_DIR: /app/data
+      BACKUP_DIR: /app/backups
       NODE_ENV: production
       SESSION_SECRET: "${SESSION_SECRET:-}"
       BOOTSTRAP_ADMIN_USER: "admin"
@@ -64,62 +79,47 @@ services:
       start_period: 10s
 ```
 
-> `/var/run/docker.sock` 挂载用于后台「一键更新」自动拉镜像并重建容器；如不需要自动更新，可注释这一行，改用 [install-host-cron.sh](<install-host-cron.sh>) 或手动 `docker compose pull`。挂载 docker.sock 等于把 Docker 控制权授予该容器，请按需选择。
-
-同目录建 `.env`（**务必改掉默认密码**）：
+同目录创建 `.env`；生产环境需覆盖默认管理员密码：
 
 ```bash
-printf 'SESSION_SECRET=%s\nBOOTSTRAP_ADMIN_PASSWORD=改成你的密码\n' "$(head -c 32 /dev/urandom | od -An -tx1 | tr -d ' \n')" > .env
+cat > .env <<EOF
+SESSION_SECRET=$(head -c 32 /dev/urandom | od -An -tx1 | tr -d " \n")
+BOOTSTRAP_ADMIN_PASSWORD=Admin@3650
+EOF
 ```
 
-一行启动：
+启动命令：
 
 ```bash
 docker compose up -d
 ```
 
-打开 `http://设备IP:3650`，用 `admin` + 你设的密码登录。
+浏览器访问 `http://设备IP:3650`。初始账号为 `admin`，初始密码由 `.env` 中的 `BOOTSTRAP_ADMIN_PASSWORD` 指定；未设置 `.env` 时为 `Admin@3650`。首次登录后需修改默认密码。
 
-**默认账号密码**：`admin` / `Admin@3650`；若按上面生成了 `.env`，以 `BOOTSTRAP_ADMIN_PASSWORD` 为准。首次登录后请在「系统设置 → 人员账号」修改。
-
----
-
-## 检查更新 / 一键更新
-
-后台侧边栏显示当前版本与「检查更新」。作者推送新镜像后会提示新版本。
-
-新版 compose 默认挂载 `docker.sock`，点「立即更新」后容器会通过 Docker API 自动拉镜像、创建更新助手、重建自身，完成后页面刷新；数据卷不删、账号与登记不丢。
-
-老版本或不想开放 `docker.sock` 的部署，可在宿主机 compose 目录执行一次：
-
-```bash
-docker cp aftersale:/app/update-cron.sh ./update-cron.sh
-docker cp aftersale:/app/install-host-cron.sh ./install-host-cron.sh
-sudo sh ./install-host-cron.sh
-```
-
-详见 [旧版本更新说明](<docs/OLD-VERSION-UPDATE.md>)。
+`/var/run/docker.sock` 挂载用于后台一键更新；挂载后容器具备宿主机 Docker 控制权限。禁用该挂载时，可采用 [install-host-cron.sh](install-host-cron.sh) 或手动执行更新命令。
 
 ---
 
 ## 手动升级
 
-镜像标签固定为 `xiaoluya/wuyou-aftersale:1.0.0`，本机缓存旧 tag 时 `docker compose up -d` 不会自动拉新镜像。手动升级执行：
+镜像标签固定为 `xiaoluya/wuyou-aftersale:1.0.0`。本机存在旧 tag 缓存时，`docker compose up -d` 不会自动拉取新镜像。手动升级命令：
 
 ```bash
-docker compose pull && docker compose up -d --force-recreate
+docker compose pull
+docker compose up -d --force-recreate
 ```
 
-若本地仍缓存旧镜像：
+若本机仍缓存旧镜像：
 
 ```bash
 docker rmi xiaoluya/wuyou-aftersale:1.0.0
-docker compose pull && docker compose up -d --force-recreate
+docker compose pull
+docker compose up -d --force-recreate
 ```
 
-升级后浏览器 **Ctrl+F5** 强刷一次。不要执行 `docker compose down -v`，不要删 `./data`、`./backups`；数据、账号、激活状态都在卷里。
+升级后浏览器执行 `Ctrl+F5` 强制刷新。禁止执行 `docker compose down -v`，禁止删除 `./data`、`./backups`；业务数据、账号与激活状态均保存在数据卷中。
 
-验证镜像 digest：
+镜像 digest 核验：
 
 ```bash
 docker inspect --format='{{index .RepoDigests 0}}' xiaoluya/wuyou-aftersale:1.0.0
@@ -127,45 +127,43 @@ docker inspect --format='{{index .RepoDigests 0}}' xiaoluya/wuyou-aftersale:1.0.
 
 ---
 
-## 其他安装方式
-
-- 安卓 APP / Windows 安装版 / 飞牛 FPK：[Releases](<https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.3>)
-- 一键脚本：`./install.sh`（仅拉镜像，不含源码）
-- Ubuntu / 宝塔裸机部署思路：[裸机部署](<docs/BARE-METAL.md>) · [多客户托管规划](<docs/MULTI-TENANT-PLAN.md>)
-- 客户端说明：[docs/CLIENTS.md](<docs/CLIENTS.md>)
-
-> 电脑端仅提供 Windows 安装版，不再提供绿色版 / AppImage。公开仓不含核心源码；源码在私有仓。
-
----
-
-## 设备保修查询（给用户用）
-
-打开 `http://设备IP:3650/cx`（或云端域名 `/cx`），无需登录，输入设备 **SN / 订单号 / 手机号** 可查保修到期日、剩余天数与设备参数；可提交「保修寄送」「一键上门保修」并查看处理记录。商家在后台「保修设置」录入设备，在「安心保」处理报修单。
-
----
-
 ## 授权与价格
 
-一次性买断 **¥199**，后续所有版本更新免费。首次免费试用 15 天，到期弹窗展示作者收款二维码与联系方式，输入激活码后离线激活（断网可用）。
+一次性买断 **¥299**，后续所有版本更新免费。首次安装提供 15 天试用；到期后展示购买方式与联系方式，输入激活码后离线激活。整机备份迁移至新设备后，授权状态会按目标设备重新初始化，需使用与目标设备匹配的激活码。
 
 ---
 
-## 渠道报价系统（给用户看价）
+## 设备保修查询
 
-打开 `http://设备IP:3650/bj`（云端 `https://xlry.cc.cd/bj`）：匿名只显示商品与 **零售价**；渠道账号由管理员在后台「报价系统」开通（不能自助注册），登录后按等级显示 **普通渠道价 / 核心渠道价**。商品支持本地上传图片或网络图片链接；电脑端点卡片不弹详情，手机端点小卡查看详情。
+访问 `http://设备IP:3650/cx` 或云端域名 `/cx`，无需登录即可通过 SN / 订单号 / 手机号查询保修到期日、剩余天数与设备参数，并可提交保修寄送或上门报修。商家侧在后台「保修设置」录入设备，在「安心保」处理报修单。
+
+---
+
+## 渠道报价系统
+
+访问 `http://设备IP:3650/bj` 或云端域名 `/bj`：匿名访问仅展示商品与零售价；渠道账号登录后按等级展示普通渠道价 / 核心渠道价。渠道账号由管理员在后台「报价系统」开通，不提供自助注册。商品支持本地上传图片或网络图片链接；电脑端与手机端均提供适配展示。
 
 ---
 
 ## 数据迁移 / 整机备份
 
-旧版本升级、清空重建前，请在「数据导出 → 整机数据备份 JSON」下载备份（含售后单、字典、用户、设置、安心保设备与报修单、报价商品与渠道账号）。重建后在「数据导出 → 整机数据恢复」选择该 JSON 一键恢复。**Excel / CSV 与表格导入只处理售后登记，不能恢复整机数据。**
+旧版本升级、清空重建或跨设备迁移前，需在「数据导出 → 整机数据备份 JSON」下载备份。整机 JSON 覆盖售后单、字典、用户、设置、安心保设备与报修单、报价商品与渠道账号。重建后通过「数据导出 → 整机数据恢复」导入。
+
+Excel / CSV 与表格导入仅处理售后登记，不能替代整机恢复。整机恢复完成后，授权状态会按当前设备重新初始化；激活码不可跨设备直接复制使用。
 
 ---
 
-## 当前交付镜像
+## 其他安装方式
 
-`xiaoluya/wuyou-aftersale:1.0.0` 与 `:latest` 指向同一份最新镜像，当前版本与 digest 以公开仓 [version.json](<version.json>) 为准（每次镜像推送自动发布）。飞牛用户可在 Releases 下载 `WuyouAftersale-1.0.3-Feiniu.fpk`（官方 fnpack 打包），在应用中心「手动安装」导入。
+- 安卓 APK / Windows 安装版 / 飞牛 FPK：[Releases](https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.3)
+- 一键脚本：`./install.sh`（仅拉取镜像，不含源码）
+- Ubuntu / 宝塔裸机部署说明：[裸机部署](docs/BARE-METAL.md) · [多实例托管架构](docs/MULTI-TENANT-PLAN.md)
+- 客户端说明：[docs/CLIENTS.md](docs/CLIENTS.md)
+
+桌面客户端正式交付 Windows 安装版。公开仓不含核心源码；源码位于私有仓。
 
 ---
 
-其他文档：[安装细节](<docs/INSTALL.md>) · [常见问题](<docs/FAQ.md>) · [价格说明](<docs/PRICING.md>) · [交付镜像说明](<docs/DEPLOY-PUBLIC.md>) · [更新日志](<docs/CHANGELOG.md>)
+## 文档索引
+
+[安装细节](docs/INSTALL.md) · [常见问题](docs/FAQ.md) · [价格说明](docs/PRICING.md) · [交付镜像说明](docs/DEPLOY-PUBLIC.md) · [更新日志](docs/CHANGELOG.md)
