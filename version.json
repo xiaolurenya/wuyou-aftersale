@@ -1,7 +1,7 @@
 {
   "version": "1.6.36",
+  "digest": "",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-16T09:33:22.136Z",
-  "note": "返回录入支持无序列号设备按客户/联系人/电话/单号定位；候选按单据ID精确选择，修复同序列号串单。 docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。",
-  "digest": "sha256:47c59e50d67231f700ddb12c04f2de1af9bf2e382a62314e08627100cba734c3"
+  "released_at": "2026-11-16T10:47:07.646Z",
+  "note": "返回录入支持无序列号设备、修复重复序列号串单、候选与待确认显示内部备注；docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
 }
