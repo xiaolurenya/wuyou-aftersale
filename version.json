@@ -1,7 +1,7 @@
 {
   "version": "1.6.36",
-  "digest": "",
+  "digest": "sha256:3340460e5f685651eb2d313b704bf96623f77cdecf7e38b716ff9b43a2182b8d",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-16T10:47:07.646Z",
+  "released_at": "2026-11-16T10:49:53.868Z",
   "note": "返回录入支持无序列号设备、修复重复序列号串单、候选与待确认显示内部备注；docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
 }
