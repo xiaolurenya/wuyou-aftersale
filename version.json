@@ -1,7 +1,7 @@
 {
   "version": "1.6.38",
-  "digest": "sha256:3340460e5f685651eb2d313b704bf96623f77cdecf7e38b716ff9b43a2182b8d",
+  "digest": "sha256:5d2a9a5e55c049d4bbe45a4973d12d12272f55f1c6e55967176834e7569fe6d8",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-16T14:26:51.819707Z",
+  "released_at": "2026-11-16T14:33:04.465Z",
   "note": "关闭非服务器版本的 /yt 报价页入口；仅 bare 服务器保留 /yt。"
 }
