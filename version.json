@@ -1,7 +1,7 @@
 {
-  "version": "1.6.33",
-  "digest": "sha256:1290bed70c13c84d6e2708d41f1d9df6b8f67b5a274038f89868fcf18ff9a32e",
+  "version": "1.6.34",
+  "digest": "",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-15T14:39:55.848Z",
-  "note": "修复修改密码二次确认；整机备份导入后按目标设备重新初始化授权状态；公开价格调整为 299 元。"
+  "released_at": "2026-11-16T00:27:07.213Z",
+  "note": "修复刷新时标签栏先显示默认品牌名；docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
 }
