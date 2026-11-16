@@ -6,7 +6,7 @@
 
 无忧商服通是一款私有部署的售后登记管理软件，适用于飞牛 NAS、群晖 NAS、绿联 NAS、Ubuntu / Debian 服务器、宝塔面板及云端托管环境。业务数据保存在部署方控制的设备或数据库中，采用一次性买断授权，后续版本更新免费。
 
-![版本](https://img.shields.io/badge/version-v1.6.35-blue)
+![版本](https://img.shields.io/badge/version-v1.6.36-blue)
 ![许可](https://img.shields.io/badge/license-Proprietary-orange)
 ![端口](https://img.shields.io/badge/port-3650-green)
 ![平台](https://img.shields.io/badge/platform-Feiniu%20%2F%20Synology%20%2F%20UGREEN%20%2F%20Ubuntu%20%2F%20%E5%AE%9D%E5%A1%94-lightgrey)
@@ -35,7 +35,7 @@
 
 ## 当前版本
 
-当前交付版本：**v1.6.35**。
+当前交付版本：**v1.6.36**。
 
 `xiaoluya/wuyou-aftersale:1.0.0` 与 `:latest` 指向同一份最新镜像；版本与 digest 以公开仓 [version.json](version.json) 为准。
 
