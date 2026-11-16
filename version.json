@@ -1,7 +1,7 @@
 {
   "version": "1.6.35",
-  "digest": "",
+  "digest": "sha256:75788db28600ee686214885f5e31c427099071f48c8b0562a38d94ca8ab118ce",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-16T04:26:09.044Z",
+  "released_at": "2026-11-16T04:36:28.202Z",
   "note": "修复云端取件检索字段、Excel导出、价格与发布一致性；docker compose pull && docker compose up -d --force-recreate 后 Ctrl+F5 刷新。"
 }
