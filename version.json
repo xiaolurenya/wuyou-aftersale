@@ -1,7 +1,7 @@
 {
   "version": "1.6.39",
-  "digest": "sha256:7d2922be8e4a97c83adef6dafc9a65e9203d35ac1f28e9d3b925b4dcac855593",
+  "digest": "sha256:b104adf7f1dd3a5ba8d8aff61348db7779e23316e99296294a863727f91d84f1",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-17T10:33:53.556Z",
-  "note": "修复维保中心权限点并汉化权限页面；同步 v1.6.39 飞牛包与全端。"
+  "released_at": "2026-11-17T10:49:15.531Z",
+  "note": "全线权限控制齐全：人员权限配置新增取件中心/返回录入/打印/统计/日志/危险操作/报价等权限点，并服务端强制校验。"
 }
