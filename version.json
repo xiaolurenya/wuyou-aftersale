@@ -1,7 +1,7 @@
 {
-  "version": "1.6.38",
+  "version": "1.6.39",
   "digest": "sha256:5d2a9a5e55c049d4bbe45a4973d12d12272f55f1c6e55967176834e7569fe6d8",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-16T14:33:04.465Z",
-  "note": "关闭非服务器版本的 /yt 报价页入口；仅 bare 服务器保留 /yt。"
+  "released_at": "2026-11-17T06:02:47.503Z",
+  "note": "全线上线快捷登记、维保中心、打印明细、返回录入、取件中心、任意检索与自费闭环；仅作者 bare 服务器保留 /yt。"
 }
