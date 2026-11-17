@@ -1,7 +1,7 @@
 {
   "version": "1.6.39",
-  "digest": "sha256:99049e24725b69f6ccec5dfb6f0ba7766c245f8a4a745f873020ea03723d9570",
+  "digest": "sha256:7d2922be8e4a97c83adef6dafc9a65e9203d35ac1f28e9d3b925b4dcac855593",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-17T07:17:00.000Z",
-  "note": "全线上线快捷登记、维保中心、打印明细、返回录入、取件中心、任意检索与自费闭环；仅作者 bare 服务器保留 /yt。"
+  "released_at": "2026-11-17T10:33:53.556Z",
+  "note": "修复维保中心权限点并汉化权限页面；同步 v1.6.39 飞牛包与全端。"
 }
