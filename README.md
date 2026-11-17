@@ -161,7 +161,7 @@ Excel / CSV 与表格导入仅处理售后登记，不能替代整机恢复。�
 
 ## 其他安装方式
 
-- 安卓 APK / Windows 安装版 / 飞牛 FPK：[Releases](https://github.com/xiaolurenya/wuyou-aftersale/releases/tag/v1.0.3)
+- 安卓 APK / Windows 安装版 / 飞牛 FPK：[Releases](https://github.com/xiaolurenya/wuyou-aftersale/releases/latest)
 - 一键脚本：`./install.sh`（仅拉取镜像，不含源码）
 - Ubuntu / 宝塔裸机部署说明：[裸机部署](docs/BARE-METAL.md) · [多实例托管架构](docs/MULTI-TENANT-PLAN.md)
 - 客户端说明：[docs/CLIENTS.md](docs/CLIENTS.md)
