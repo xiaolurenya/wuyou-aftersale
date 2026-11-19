@@ -1,7 +1,7 @@
 {
   "version": "1.6.42",
-  "digest": "sha256:9ef032ffe55db7c6037aea22f978b92f75e5a713938e62a388df33bd69f88bcd",
+  "digest": "sha256:5b6c98ce3b2413d63cd504cc6d9fb6b7138cea25655fc76d84c72113d5bd0de5",
   "image": "xiaoluya/wuyou-aftersale:1.6.42",
-  "released_at": "2026-11-18T10:02:55.176Z",
-  "note": "返回录入销售日期为空不显示；打印、登记、快捷保修修复；Docker Hub 1.6.42/1.0.0/latest。"
+  "released_at": "2026-11-19T09:13:17.080028Z",
+  "note": "修复系统设置页 nfUrl is not defined；Docker Hub 1.6.42/1.0.0/latest 同步发布。"
 }
