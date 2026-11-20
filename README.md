@@ -6,7 +6,7 @@
 
 无忧商服通是一款私有部署的售后登记管理软件，适用于飞牛 NAS、群晖 NAS、绿联 NAS、Ubuntu / Debian 服务器、宝塔面板及云端托管环境。业务数据保存在部署方控制的设备或数据库中，采用一次性买断授权，后续版本更新免费。
 
-![版本](https://img.shields.io/badge/version-v1.6.43-blue)
+![版本](https://img.shields.io/badge/version-1.6.44-blue)
 ![许可](https://img.shields.io/badge/license-Proprietary-orange)
 ![端口](https://img.shields.io/badge/port-3650-green)
 ![平台](https://img.shields.io/badge/platform-Feiniu%20%2F%20Synology%20%2F%20UGREEN%20%2F%20Ubuntu%20%2F%20%E5%AE%9D%E5%A1%94-lightgrey)
@@ -15,7 +15,7 @@
 
 ## 功能模块
 
-无忧商服通 v1.6.43 将售后业务整理成「收件 → 维保 → 打印 → 返回 → 取件 → 检索」闭环，前台登记不再混杂送修、换新、返回、取件信息。
+无忧商服通 1.6.44 将售后业务整理成「收件 → 维保 → 打印 → 返回 → 取件 → 检索」闭环，前台登记不再混杂送修、换新、返回、取件信息。
 
 - **前台快捷登记**：只负责收件，默认状态为「已收件」；产品型号、维修单位、序列号、客户寄来单号与快递公司可快速录入，销售日期支持 `20260512`、`2026-2-5`、`2026/02/15` 自动标准化为 `YYYY-MM-DD`。
 - **维保中心**：集中处理最新未处理的已收件单据，支持「送修上家」「自维保」「编辑」快捷操作；客户寄来单号、快递单号、寄商家备注、送修日期和上家信息统一管理。
@@ -41,7 +41,7 @@
 
 ## 当前版本
 
-当前交付版本：**v1.6.43**。
+当前交付版本：**1.6.44**。
 
 `xiaoluya/wuyou-aftersale:1.0.0` 与 `:latest` 指向同一份最新镜像；版本与 digest 以公开仓 [version.json](version.json) 为准。
 
