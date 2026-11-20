@@ -2,6 +2,6 @@
   "version": "1.6.44",
   "digest": "sha256:0361a7dc9cdb49d4447335dbf320e98ab5380625a7ff2673b59b57e97f2d56bd",
   "image": "xiaoluya/wuyou-aftersale:1.6.44",
-  "released_at": "2026-11-20T05:30:52.263Z",
+  "released_at": "2026-11-20T05:25:00.000Z",
   "note": "寄送超期提醒天数改为整数显示，避免小数天；Docker Hub 1.6.44 / 1.0.0 / latest 同步发布。"
 }
