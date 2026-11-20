@@ -1,8 +1,8 @@
 # 客户端与安装包
 
-## 飞牛 FPK（v1.6.39）
+## 飞牛 FPK（v1.6.46）
 
-飞牛 NAS 可通过 Docker Compose 安装，或在 Releases 下载 `WuyouAftersale-1.6.39-Feiniu.fpk` 手动安装。安装包包含 compose、图标与安装脚本，并自动拉取交付镜像。
+飞牛 NAS 可通过 Docker Compose 安装，或在 Releases 下载 `WuyouAftersale-1.6.46-Feiniu.fpk` 手动安装。安装包包含 compose、图标与安装脚本，并自动拉取交付镜像。
 
 ## 安卓客户端
 
@@ -17,4 +17,4 @@
 正式交付以 [Releases](https://github.com/xiaolurenya/wuyou-aftersale/releases) 中的 APK / EXE / FPK 为准。
 
 
-> v1.6.39 飞牛包固定使用最新 Docker Hub digest，公开包不提供 `/yt`，售后新流程闭环与云端/Docker 一致。
+> v1.6.46 飞牛包固定使用最新 Docker Hub digest，公开包不提供 `/yt`，售后新流程闭环与云端/Docker 一致。
