@@ -46,7 +46,7 @@ services:
 
 ## 飞牛 NAS
 
-可在公开仓 `downloads/` 下载 `WuyouAftersale-1.6.39-Feiniu.fpk` 手动安装；该包固定拉取 v1.6.39 镜像 digest，数据目录与备份目录均挂载到套件目录，不提供 `/yt`。
+可在公开仓 `downloads/` 下载 `WuyouAftersale-1.6.46-Feiniu.fpk` 手动安装；该包固定拉取 v1.6.46 镜像 digest，数据目录与备份目录均挂载到套件目录，不提供 `/yt`。
 
 1. 在系统设置中启用 Docker 与 Compose 功能。
 2. 在文件管理中创建数据目录，例如 `/vol1/docker/aftersale`。
