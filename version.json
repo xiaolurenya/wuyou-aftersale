@@ -1,7 +1,7 @@
 {
-  "version": "1.6.42",
-  "digest": "sha256:5b6c98ce3b2413d63cd504cc6d9fb6b7138cea25655fc76d84c72113d5bd0de5",
-  "image": "xiaoluya/wuyou-aftersale:1.6.42",
-  "released_at": "2026-11-19T09:13:17.080028Z",
-  "note": "修复系统设置页 nfUrl is not defined；Docker Hub 1.6.42/1.0.0/latest 同步发布。"
+  "version": "1.6.43",
+  "digest": "sha256:429312e6b95c60287aeb7a13036b3a185b0a67f8e4ff5cc5740b106771f58fc7",
+  "image": "xiaoluya/wuyou-aftersale:1.6.43",
+  "released_at": "2026-11-20T05:01:43.235Z",
+  "note": "打印明细新增隐藏寄送批次：默认只打印最新未打印批次，避免同一天同一上家串单；全部明细/历史补打仍可显示全部。Docker Hub 1.6.43 / 1.0.0 / latest 同步发布。"
 }
