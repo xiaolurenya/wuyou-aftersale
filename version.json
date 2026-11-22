@@ -1,7 +1,7 @@
 {
-  "version": "1.6.53",
-  "digest": "sha256:177908476963f52ace04085ac2691c8145d791e1d9fb83a3b589df8f34bc79a6",
+  "version": "1.6.54",
+  "digest": "sha256:fb205b9c2de9440f0abd9dd7e9faf27b0ef60b5a356353eaef65b7848a51444c",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-22T06:11:04.011Z",
-  "note": "新增后台一键下载全量数据包与一键导入恢复，适用于服务器/Docker/NAS 换机与版本升级。"
+  "released_at": "2026-11-22T06:27:47.913Z",
+  "note": "定时备份设置页增加日常备份与换机恢复说明，明确 .sqlite 与 .wuyoudata 用途。"
 }
