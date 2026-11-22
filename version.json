@@ -1,7 +1,7 @@
 {
-  "version": "1.6.54",
-  "digest": "sha256:fb205b9c2de9440f0abd9dd7e9faf27b0ef60b5a356353eaef65b7848a51444c",
+  "version": "1.6.55",
+  "digest": "sha256:f3769cf8baadcb58a0fd7d64e7b9990e0390a1e06872622c27c9304058fa2952",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-22T06:27:47.913Z",
-  "note": "定时备份设置页增加日常备份与换机恢复说明，明确 .sqlite 与 .wuyoudata 用途。"
+  "released_at": "2026-11-22T06:37:33.412Z",
+  "note": "修复定时备份页说明插入导致设置表单和按钮未渲染；说明放到函数顶部常量并重新拼接。"
 }
