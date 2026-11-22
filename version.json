@@ -1,7 +1,7 @@
 {
-  "version": "1.6.51",
-  "digest": "sha256:f9110e86bca65f5de09b6259719f839b5f2a6784b5be60ff74965b528f62dc73",
+  "version": "1.6.52",
+  "digest": "sha256:06a3106ed80f6eb15e3a44fb8ce955c002f2ab0919423166cb736b2fb11910cd",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-22T04:38:40.220Z",
-  "note": "任意检索待返回筛选兼容已送修；整理寄送上家、送修单位/联系方式、快递维保信息列内容对应。"
+  "released_at": "2026-11-22T05:13:00.882Z",
+  "note": "修复定时备份生成迁移包：先生成再下载；服务器版生成数据恢复包并包含 protected 目录。"
 }
