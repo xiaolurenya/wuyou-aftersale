@@ -1,7 +1,7 @@
 {
-  "version": "1.6.52",
-  "digest": "sha256:06a3106ed80f6eb15e3a44fb8ce955c002f2ab0919423166cb736b2fb11910cd",
+  "version": "1.6.53",
+  "digest": "sha256:177908476963f52ace04085ac2691c8145d791e1d9fb83a3b589df8f34bc79a6",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-22T05:13:00.882Z",
-  "note": "修复定时备份生成迁移包：先生成再下载；服务器版生成数据恢复包并包含 protected 目录。"
+  "released_at": "2026-11-22T06:11:04.011Z",
+  "note": "新增后台一键下载全量数据包与一键导入恢复，适用于服务器/Docker/NAS 换机与版本升级。"
 }
