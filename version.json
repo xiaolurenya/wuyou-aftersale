@@ -1,7 +1,7 @@
 {
-  "version": "1.6.46",
-  "digest": "sha256:1c9b9186e9afa7932ab47ea4800bbb7c2234f2b7bdb836e386a8dd18b21938e5",
-  "image": "xiaoluya/wuyou-aftersale:1.6.46",
-  "released_at": "2026-11-20T07:25:12.032Z",
-  "note": "自费维修统计新增最近收费单据手动编辑：可取消误勾自费、修正维修费，并同步主表/查询信息；修复保存未生效问题。Docker Hub 1.6.46 / 1.0.0 / latest 同步发布。"
+  "version": "1.6.47",
+  "digest": "sha256:bbac9e9842383135238211d5e3ed090a5a684451aa21e8592c0dd55f0420aa3c",
+  "image": "xiaoluya/wuyou-aftersale:1.0.0",
+  "released_at": "2026-11-22T03:42:02.045Z",
+  "note": "打印明细标题显示上家时追加「（售后收）」；默认显示上家名称；同步香港 bare 与客户机。"
 }
