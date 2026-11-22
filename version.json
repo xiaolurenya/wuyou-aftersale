@@ -1,7 +1,7 @@
 {
-  "version": "1.6.49",
-  "digest": "sha256:5ef175c6d5f849e5f82367d94bb3e1725618061303f256ca203aa3c641286f20",
+  "version": "1.6.50",
+  "digest": "sha256:650bed60c227ef183c5f772123f77b15263bc259d3f74fd7e6fcb91832039bfc",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-22T04:01:48.878Z",
-  "note": "任意检索销售日期列布局优化：放大快递信息字号、收窄快递信息列、修正旧操作列 sticky 规则。"
+  "released_at": "2026-11-22T04:19:00.684Z",
+  "note": "修复任意检索维修进度下拉仅显示已收件；恢复完整状态列表。"
 }
