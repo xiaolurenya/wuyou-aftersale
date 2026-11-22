@@ -1,7 +1,7 @@
 {
-  "version": "1.6.50",
-  "digest": "sha256:650bed60c227ef183c5f772123f77b15263bc259d3f74fd7e6fcb91832039bfc",
+  "version": "1.6.51",
+  "digest": "sha256:f9110e86bca65f5de09b6259719f839b5f2a6784b5be60ff74965b528f62dc73",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-22T04:19:00.684Z",
-  "note": "修复任意检索维修进度下拉仅显示已收件；恢复完整状态列表。"
+  "released_at": "2026-11-22T04:38:40.220Z",
+  "note": "任意检索待返回筛选兼容已送修；整理寄送上家、送修单位/联系方式、快递维保信息列内容对应。"
 }
