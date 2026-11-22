@@ -1,7 +1,7 @@
 {
-  "version": "1.6.47",
-  "digest": "sha256:bbac9e9842383135238211d5e3ed090a5a684451aa21e8592c0dd55f0420aa3c",
+  "version": "1.6.48",
+  "digest": "sha256:591fb79ac98b8ef4afc01fe369e6139bc7f0c600ff6a2c994de1be428462bf2e",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-22T03:42:02.045Z",
-  "note": "打印明细标题显示上家时追加「（售后收）」；默认显示上家名称；同步香港 bare 与客户机。"
+  "released_at": "2026-11-22T03:53:12.479Z",
+  "note": "任意检索新增销售日期列，并压缩表格布局适配宽屏显示；同步两端服务器。"
 }
