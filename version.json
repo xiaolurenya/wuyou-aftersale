@@ -1,7 +1,7 @@
 {
-  "version": "1.6.48",
-  "digest": "sha256:591fb79ac98b8ef4afc01fe369e6139bc7f0c600ff6a2c994de1be428462bf2e",
+  "version": "1.6.49",
+  "digest": "sha256:5ef175c6d5f849e5f82367d94bb3e1725618061303f256ca203aa3c641286f20",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-22T03:53:12.479Z",
-  "note": "任意检索新增销售日期列，并压缩表格布局适配宽屏显示；同步两端服务器。"
+  "released_at": "2026-11-22T04:01:48.878Z",
+  "note": "任意检索销售日期列布局优化：放大快递信息字号、收窄快递信息列、修正旧操作列 sticky 规则。"
 }
