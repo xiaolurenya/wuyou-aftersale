@@ -1,7 +1,7 @@
 {
-  "version": "1.6.55",
-  "digest": "sha256:f3769cf8baadcb58a0fd7d64e7b9990e0390a1e06872622c27c9304058fa2952",
+  "version": "1.6.56",
+  "digest": "sha256:4e2b4e4522779c6a6f8dfa974502da7e05f59f9992fada54bb309304647edbf0",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-22T06:37:33.412Z",
-  "note": "修复定时备份页说明插入导致设置表单和按钮未渲染；说明放到函数顶部常量并重新拼接。"
+  "released_at": "2026-11-22T06:53:23.705Z",
+  "note": "全量包改为通用完整数据导出/导入说明；普通版本更新无需导入；导入成功/失败明确反馈；立即备份下载 .sqlite。"
 }
