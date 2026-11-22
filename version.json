@@ -1,7 +1,7 @@
 {
-  "version": "1.6.56",
-  "digest": "sha256:4e2b4e4522779c6a6f8dfa974502da7e05f59f9992fada54bb309304647edbf0",
+  "version": "1.6.57",
+  "digest": "sha256:e81d8565f9c73bee6c5ec864c946d131bc1b77ed6a6524a1b44f4b907ff7a890",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-22T06:53:23.705Z",
-  "note": "全量包改为通用完整数据导出/导入说明；普通版本更新无需导入；导入成功/失败明确反馈；立即备份下载 .sqlite。"
+  "released_at": "2026-11-22T07:05:43.209Z",
+  "note": "修复全量数据包导入时 users.password_hash NOT NULL 错误；导入恢复保留当前登录账号与授权状态。"
 }
