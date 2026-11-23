@@ -1,7 +1,7 @@
 {
-  "version": "1.6.58",
-  "digest": "sha256:037d88bce6a23d64af8fd58512ce25ad7a8ed78cb37c616813ff0a14b70fe609",
+  "version": "1.6.59",
+  "digest": "sha256:344e252f663da7d9140b238a21c38efd9a75c8ea542d488930a6f42cb233df1b",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-23T07:23:46.084Z",
-  "note": "返回录入待确认单据增加返回备注，保存后任意检索可见并可检索；同步 cloud 静态前端。"
+  "released_at": "2026-11-23T08:23:38.261Z",
+  "note": "明细单已返回按返回日期查当天；新增取件查询；返回备注/收费明显化；今日已返回实时刷新；返回录入收费金额同步任意检索和自费统计。"
 }
