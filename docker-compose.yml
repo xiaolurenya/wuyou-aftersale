@@ -1,6 +1,6 @@
 services:
   aftersale:
-    image: xiaoluya/wuyou-aftersale:1.0.0
+    image: xiaoluya/wuyou-aftersale:1.0.0@sha256:260e19b8645212bd98bc4388f462ff2fe6036d94c30839538ff0b06182ada19d
     container_name: aftersale
     restart: unless-stopped
     ports:
@@ -16,6 +16,7 @@ services:
       DATA_DIR: /app/data
       BACKUP_DIR: /app/backups
       NODE_ENV: production
+      WUYOU_ENABLE_YT: "0"
       SESSION_SECRET: "${SESSION_SECRET:-}"
       BOOTSTRAP_ADMIN_USER: "admin"
       BOOTSTRAP_ADMIN_PASSWORD: "${BOOTSTRAP_ADMIN_PASSWORD:-Admin@3650}"
