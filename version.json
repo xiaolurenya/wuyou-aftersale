@@ -1,7 +1,7 @@
 {
   "version": "1.6.62",
-  "digest": "sha256:d11b009a897990ba17fc387ee02811d4010e0dfcf985285b64e6ebb87fda01b0",
+  "digest": "sha256:260e19b8645212bd98bc4388f462ff2fe6036d94c30839538ff0b06182ada19d",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-23T14:06:41.310Z",
+  "released_at": "2026-11-23T14:14:27.591Z",
   "note": "首页大屏、AI 智能助手、自然语言查询、送修上家学习推荐、取件批量操作、明细单按客户打印、页面速度优化；数据不变，更新请强制刷新浏览器缓存。"
 }
