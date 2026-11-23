@@ -1,7 +1,7 @@
 {
-  "version": "1.6.57",
-  "digest": "sha256:e81d8565f9c73bee6c5ec864c946d131bc1b77ed6a6524a1b44f4b907ff7a890",
+  "version": "1.6.58",
+  "digest": "sha256:037d88bce6a23d64af8fd58512ce25ad7a8ed78cb37c616813ff0a14b70fe609",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-22T07:05:43.209Z",
-  "note": "修复全量数据包导入时 users.password_hash NOT NULL 错误；导入恢复保留当前登录账号与授权状态。"
+  "released_at": "2026-11-23T07:23:46.084Z",
+  "note": "返回录入待确认单据增加返回备注，保存后任意检索可见并可检索；同步 cloud 静态前端。"
 }
