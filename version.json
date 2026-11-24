@@ -1,7 +1,7 @@
 {
-  "version": "1.6.66",
-  "digest": "sha256:0fe04617c64b80329a55ca01a57a22c789bc4d3bea915b14aa0e3627a17b2ac5",
+  "version": "1.6.67",
+  "digest": "sha256:abdccb1e816f2c934fd92a480249d939fa9a2c0bf830ff789ebdfb61e3289f44",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-23T23:59:41.586Z",
-  "note": "新增手机专用轻量界面，电脑端保留监控大屏；数据不变，更新请强制刷新浏览器缓存。"
+  "released_at": "2026-11-24T03:40:28.705Z",
+  "note": "修复打印明细日期与范围、本上家共统计、新增登记日期遮挡、所有页面下拉深色；数据不变，更新请强制刷新浏览器缓存。"
 }
