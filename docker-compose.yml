@@ -1,6 +1,6 @@
 services:
   aftersale:
-    image: xiaoluya/wuyou-aftersale:1.0.0@sha256:dad35e5197041b826cbfa6a57d4c152a6e977a7404b2ed6a20ef4fed646dfd9e
+    image: xiaoluya/wuyou-aftersale:1.0.0@sha256:0fe04617c64b80329a55ca01a57a22c789bc4d3bea915b14aa0e3627a17b2ac5
     container_name: aftersale
     restart: unless-stopped
     ports:
