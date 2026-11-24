@@ -4,7 +4,7 @@
 
 **售后登记 · 维保流转 · 自费统计 · 客户查询 · 安心保 · 渠道报价 一站式**
 
-![版本](https://img.shields.io/badge/version-1.6.70-blue)
+![版本](https://img.shields.io/badge/version-1.6.71-blue)
 ![许可](https://img.shields.io/badge/license-%E4%B9%B0%E6%96%AD%E6%8E%88%E6%9D%83-orange)
 ![端口](https://img.shields.io/badge/port-3650-green)
 ![平台](https://img.shields.io/badge/platform-Feiniu%20%2F%20Synology%20%2F%20UGREEN%20%2F%20Ubuntu%20%2F%20Docker%20%2F%20Cloud-lightgrey)
@@ -81,7 +81,7 @@
 ---
 ## 当前版本
 
-当前交付版本：**1.6.70**。
+当前交付版本：**1.6.71**。
 
 `xiaoluya/wuyou-aftersale:1.0.0` 与 `:latest` 指向同一份最新镜像；版本与 digest 以公开仓 [version.json](version.json) 为准。
 
