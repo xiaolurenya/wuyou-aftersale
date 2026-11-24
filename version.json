@@ -1,7 +1,7 @@
 {
-  "version": "1.6.65",
-  "digest": "sha256:dad35e5197041b826cbfa6a57d4c152a6e977a7404b2ed6a20ef4fed646dfd9e",
+  "version": "1.6.66",
+  "digest": "sha256:0fe04617c64b80329a55ca01a57a22c789bc4d3bea915b14aa0e3627a17b2ac5",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-23T23:48:53.419Z",
-  "note": "修复今日已返回跨日仍显示昨天数据的时区问题；业务日期统一 Asia/Shanghai，数据不变，更新请强制刷新浏览器缓存。"
+  "released_at": "2026-11-23T23:59:41.586Z",
+  "note": "新增手机专用轻量界面，电脑端保留监控大屏；数据不变，更新请强制刷新浏览器缓存。"
 }
