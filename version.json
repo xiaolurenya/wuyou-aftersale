@@ -1,7 +1,7 @@
 {
-  "version": "1.6.67",
-  "digest": "sha256:abdccb1e816f2c934fd92a480249d939fa9a2c0bf830ff789ebdfb61e3289f44",
+  "version": "1.6.68",
+  "digest": "sha256:884b0a5319cadc6ad318f99050e88feabcc58b36c84293341852ca7992a2d3df",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-24T03:40:28.705Z",
-  "note": "修复打印明细日期与范围、本上家共统计、新增登记日期遮挡、所有页面下拉深色；数据不变，更新请强制刷新浏览器缓存。"
+  "released_at": "2026-11-24T04:01:27.727Z",
+  "note": "修复日期弹窗、打印默认批次、显式全部明细勾选、下拉选值错乱；数据不变，更新请强制刷新浏览器缓存。"
 }
