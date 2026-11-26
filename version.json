@@ -1,7 +1,7 @@
 {
-  "version": "1.6.83",
-  "digest": "sha256:9e12e892b3303903df284f541db6c39ea69213f4481f9c9a0f489efadca4eba2",
+  "version": "1.6.87",
+  "digest": "sha256:f0a332d5398c8d29e641712b6e1ff2dcdddcb0681eebe455122abdb90689b1b0",
   "image": "xiaoluya/wuyou-aftersale:1.0.0",
-  "released_at": "2026-11-24T11:23:10Z",
-  "note": "正式发布：首页大屏自动定位天气与实时新闻、打印批次索引与确认打印、速度优化、自动化回归与数据安全检查；公共版 /yt 保持禁用。"
+  "released_at": "2026-11-26T05:35:00Z",
+  "note": "正式发布：返回录入/待确认/取件中心数量显示、任意检索左侧行选择提示；公共版 /yt 保持禁用。"
 }
