@@ -1,3 +1,12 @@
+## v1.6.87
+
+Docker 镜像 digest：sha256:f0a332d5398c8d29e641712b6e1ff2dcdddcb0681eebe455122abdb90689b1b0
+
+- 返回录入 / 待确认单据增加数量显示；取件中心型号后增加数量；前台登记保留深色主题数量字段。
+- 修复任意检索行选择提示位置：hover 任意行时显示在第一列，不再让选择框/高亮停在登记人列。
+- 公共版 /yt 保持禁用；客户升级仅换镜像，不删除 data / backups。
+- 升级请勿执行 docker compose down -v。
+
 ## v1.6.83
 
 Docker 镜像 digest：sha256:9e12e892b3303903df284f541db6c39ea69213f4481f9c9a0f489efadca4eba2
